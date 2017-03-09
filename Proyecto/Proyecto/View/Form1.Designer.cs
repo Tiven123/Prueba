@@ -105,7 +105,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(638, 366);
+            this.tabPage4.Size = new System.Drawing.Size(351, 161);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Gestión Gerencial";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -118,6 +118,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Cambio Contraseña";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 

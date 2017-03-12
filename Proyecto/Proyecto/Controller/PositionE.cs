@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class PositionE
+    public class PositionE
     {
         private int positionCod;
         private string description;

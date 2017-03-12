@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class EmployeeE : PersonE
+    public class EmployeeE : PersonE
     {
         private string employeeCod;
         private PositionE position;

@@ -24,7 +24,8 @@ namespace Model
             get { return errorMsg; }
         }
 
-        public ClientD() { 
+        public ClientD()
+            { 
                 this.conecction = PostgressDataAccess.Instance;
                 this.cleanError();
             }
@@ -46,8 +47,10 @@ namespace Model
             dsetClients = this.conecction.executeSQLQuery(sql);
             foreach (DataRow tuple in dsetClients.Tables[0].Rows)
             {
-                Provincia oProvincia = new Provincia(tupla["id_provincia"].ToString(), tupla["desc_provincia"].ToString());
-                provincias.Add(oProvincia);
+                ClientE oProvincia = new ClientE(tuple["clientname"].ToString(), tuple["lastname1"].ToString(), tuple["lastname2"].ToString()
+                    , Int32.Parse( tuple["huosephone"].ToString()), Int32.Parse(tuple["celphone"].ToString()), tuple["address"].ToString()
+                    , tuple["clientid"].ToString(), Int32.Parse(tuple["officephone"].ToString()), Int32.Parse(tuple["fax"].ToString()));
+                clients.Add(oProvincia);
             }
             return clients;
         }

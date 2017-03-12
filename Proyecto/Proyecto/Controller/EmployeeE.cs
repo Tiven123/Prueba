@@ -8,30 +8,123 @@ namespace Proyecto.Controller
 {
     class EmployeeE : PersonE
     {
-        private string name;
-        private string lastName1;
-        private string lastName2;
-        private int housePhone;
-        private int celphone;
-        private string address;
+        private string employeeCod;
+        private PositionE position;
+        private string userName;
+        private string password;
+        private bool systemAccess;
+        private bool orderManagerAccess;
+        private bool managerMagnamentAccess;
 
-        public EmployeeE(string pName, string pLastName1, string pLastName2, int pHousePhone, int pCelphone, string pAddress)
+        public string EmployeeCod
         {
-            this.Name = pName;
-            this.LastName1 = pLastName1;
-            this.LastName2 = pLastName2;
-            this.HousePhone = pHousePhone;
-            this.Celphone = pCelphone;
-            this.Address = pAddress;
+            get
+            {
+                return employeeCod;
+            }
+
+            set
+            {
+                employeeCod = value;
+            }
         }
-        public virtual string ToString()
+
+        internal PositionE Position
         {
-            return "Name: " + this.name + "\n" +
-                "Last name1: " + this.lastName1 + "\n" +
-                "Last name2: " + this.lastName2 + "\n" +
-                "House phone: " + this.housePhone + "\n" +
-                "Cel phone: " + this.celphone + "\n" +
-                "Address: " + this.address + "\n";
+            get
+            {
+                return position;
+            }
+
+            set
+            {
+                position = value;
+            }
         }
-        
+
+        public string UserName
+        {
+            get
+            {
+                return userName;
+            }
+
+            set
+            {
+                userName = value;
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                password = value;
+            }
+        }
+
+        public bool SystemAccess
+        {
+            get
+            {
+                return systemAccess;
+            }
+
+            set
+            {
+                systemAccess = value;
+            }
+        }
+
+        public bool OrderManagerAccess
+        {
+            get
+            {
+                return orderManagerAccess;
+            }
+
+            set
+            {
+                orderManagerAccess = value;
+            }
+        }
+
+        public bool ManagerMagnamentAccess
+        {
+            get
+            {
+                return managerMagnamentAccess;
+            }
+
+            set
+            {
+                managerMagnamentAccess = value;
+            }
+        }
+
+        public EmployeeE(string pName, string pLastName1, string pLastName2, int pHousePhones, int pCelphone, string pAddress,
+                        string pEmployeeCod, PositionE pPosition, string pUserName, string pPassword, bool pSystemAccess,
+                        bool pOrderManagerAccess, bool pManagerMagnamentAccess) : base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
+        {
+            this.EmployeeCod = pEmployeeCod;
+            this.Position = pPosition;
+            this.UserName = pUserName;
+            this.Password = pPassword;
+            this.SystemAccess = pSystemAccess;
+            this.OrderManagerAccess = pOrderManagerAccess;
+            this.ManagerMagnamentAccess = pManagerMagnamentAccess;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() +
+                "Codigo de empleado: " + this.employeeCod + "\n" +
+                "Posición: " + this.position.ToString() + "\n";
+        }
+    }
 }

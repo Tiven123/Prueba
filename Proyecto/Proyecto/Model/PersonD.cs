@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Model
 {
-    class Person
+    class PersonD
     {
     }
 }

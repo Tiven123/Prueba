@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proyecto.Controller
+namespace Proyecto.Model
 {
-    class Client
+    class BrandD
     {
     }
 }

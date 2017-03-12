@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Security">
+      <HintPath>C:\Users\Ralbert\Downloads\Progra III\C5\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>C:\Users\Ralbert\Downloads\Progra III\C5\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,26 +52,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Client.cs" />
+    <Compile Include="Controller\ClientE.cs" />
     <Compile Include="Controller\EmployeeE.cs" />
     <Compile Include="Controller\PersonE.cs" />
     <Compile Include="Controller\PositionE.cs" />
-    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\ClientD.cs" />
     <Compile Include="Model\EmployeeD.cs" />
-    <Compile Include="Model\Mark.cs" />
-    <Compile Include="Model\Model.cs" />
-    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\BrandD.cs" />
+    <Compile Include="Model\ModelD.cs" />
+    <Compile Include="Model\Parameters.cs" />
+    <Compile Include="Model\PersonD.cs" />
     <Compile Include="Model\Post.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="Model\PostgressDataAccess.cs" />
+    <Compile Include="View\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\Positions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Positions.Designer.cs">
+      <DependentUpon>Positions.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,6 +90,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Positions.resx">
+      <DependentUpon>Positions.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

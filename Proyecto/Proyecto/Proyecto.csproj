@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Client.cs" />
+    <Compile Include="Controller\EmployeeE.cs" />
+    <Compile Include="Controller\PersonE.cs" />
+    <Compile Include="Controller\PositionE.cs" />
     <Compile Include="Model\Client.cs" />
-    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\EmployeeD.cs" />
     <Compile Include="Model\Mark.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Person.cs" />
@@ -85,9 +89,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

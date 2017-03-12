@@ -9,9 +9,9 @@ using NpgsqlTypes;
 using System.Xml;
 using System.Windows.Forms;
 
-namespace Proyecto.Model
+namespace Model
 {
-    class PostgressDataAccess
+    public class PostgressDataAccess
     {
         private Boolean isError = false;        //Una bandera, para determinar si existe o no algun error
         private String errorDescription;        //Almacena la descripcion del error        

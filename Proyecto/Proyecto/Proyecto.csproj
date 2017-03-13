@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\BrandE.cs" />
     <Compile Include="Controller\ClientE.cs" />
     <Compile Include="Controller\EmployeeE.cs" />
+    <Compile Include="Controller\ModelE.cs" />
     <Compile Include="Controller\PersonE.cs" />
     <Compile Include="Controller\PositionE.cs" />
     <Compile Include="Model\ClientD.cs" />

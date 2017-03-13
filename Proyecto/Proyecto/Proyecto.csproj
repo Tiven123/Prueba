@@ -64,6 +64,12 @@
     <Compile Include="Model\PersonD.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
+    <Compile Include="View\Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="View\Positions.Designer.cs">
       <DependentUpon>Positions.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

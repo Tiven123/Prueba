@@ -41,18 +41,34 @@ namespace Model
             this.cleanError();
             List<ClientE> clients = new List<ClientE>();
             DataSet dsetClients;
-            string sql = "select p.id as id_provincia, p.descripcion as desc_provincia " +
-                         "from provincia p";
+            string sql = "select c.clientid as Cedula, p.clientname as Nombre, " +
+                         "c.lastname1 as Apellido1 , c.lastname2 as Apellido2,"+
+                         "c.officephone as TelefonoOficina, c.housephone as TelefonoCasa,"+
+                         "c.celphone as Celular, c.fax as Fax, c.address as Direccion  from client c";
 
             dsetClients = this.conecction.executeSQLQuery(sql);
             foreach (DataRow tuple in dsetClients.Tables[0].Rows)
             {
-                ClientE oProvincia = new ClientE(tuple["clientname"].ToString(), tuple["lastname1"].ToString(), tuple["lastname2"].ToString()
+                ClientE oClient = new ClientE(tuple["clientname"].ToString(), tuple["lastname1"].ToString(), tuple["lastname2"].ToString()
                     , Int32.Parse( tuple["huosephone"].ToString()), Int32.Parse(tuple["celphone"].ToString()), tuple["address"].ToString()
                     , tuple["clientid"].ToString(), Int32.Parse(tuple["officephone"].ToString()), Int32.Parse(tuple["fax"].ToString()));
-                clients.Add(oProvincia);
+                clients.Add(oClient);
             }
             return clients;
         }
+        public Boolean insertClient(ClientE clientN)
+        {
+            return true;
+        }
+
+        public Boolean modifyClient(ClientE clientN)
+        {
+            return true;
+        }
+        public Boolean deleteClient(ClientE clientN)
+        {
+            return true;
+        }
+
     }
 }

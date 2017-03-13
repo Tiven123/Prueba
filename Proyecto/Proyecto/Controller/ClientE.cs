@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proyecto.Controller
+namespace Controller
 {
-    class ClientE : PersonE
+    public class ClientE : PersonE
     {
         private string cedula;
         private int officePhone;

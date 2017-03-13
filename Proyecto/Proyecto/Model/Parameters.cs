@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Npgsql;
 using NpgsqlTypes;
 
-namespace Proyecto.Model
+namespace Model
 {
-    class Parameters
+    public class Parameters
     {
         private List<NpgsqlParameter> parametersList;
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proyecto.Controller
+namespace Controller
 {
-    class EmployeeE : PersonE
+    public class EmployeeE : PersonE
     {
         private string employeeCod;
         private PositionE position;

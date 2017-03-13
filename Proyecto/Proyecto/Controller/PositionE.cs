@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proyecto.Controller
+namespace Controller
 {
-    class PositionE
+    public class PositionE
     {
         private int positionCod;
         private string description;

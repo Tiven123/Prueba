@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Proyecto.Controller
 {
-    public class PersonE
+    class PersonE
     {
         private string name;
         private string lastName1;

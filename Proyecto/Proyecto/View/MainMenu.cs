@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proyecto.View;
 
 namespace Proyecto
 {
@@ -17,9 +18,16 @@ namespace Proyecto
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegisterPosition_Click(object sender, EventArgs e)
         {
+            Positions oPositions = new Positions();
+            oPositions.ShowDialog();
+        }
 
+        private void btnRegisterEmployee_Click(object sender, EventArgs e)
+        {
+            Employees oEmployees = new Employees();
+            oEmployees.ShowDialog();
         }
     }
 }

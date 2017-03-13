@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Proyecto.Controller
 {
-    public class PositionE
+    class PositionE
     {
         private int positionCod;
         private string description;
-        private char type;
+        private string type;
 
         public int PositionCod
         {
@@ -38,7 +38,7 @@ namespace Controller
             }
         }
 
-        public char Type
+        public string Type
         {
             get
             {
@@ -51,7 +51,7 @@ namespace Controller
             }
         }
 
-        public PositionE(int pPositionCod, string pDescription, char pType)
+        public PositionE(int pPositionCod, string pDescription, string pType)
         {
             this.PositionCod = pPositionCod;
             this.Description = pDescription;

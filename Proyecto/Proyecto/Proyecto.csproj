@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Security">
-      <HintPath>..\..\..\..\Descargas\appPolizaSeguros(1)\appPolizaSegurosStevenOrtiz\appPolizaSeguros\bin\Debug\Mono.Security.dll</HintPath>
+      <HintPath>C:\Users\Ralbert\Downloads\Progra III\C5\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql">
-      <HintPath>..\..\..\..\Descargas\appPolizaSeguros(1)\appPolizaSegurosStevenOrtiz\appPolizaSeguros\bin\Debug\Npgsql.dll</HintPath>
+      <HintPath>C:\Users\Ralbert\Downloads\Progra III\C5\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,13 +62,14 @@
     <Compile Include="Model\ModelD.cs" />
     <Compile Include="Model\Parameters.cs" />
     <Compile Include="Model\PersonD.cs" />
+    <Compile Include="Model\PositionD.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
-    <Compile Include="View\Clients.cs">
+    <Compile Include="View\Employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Clients.Designer.cs">
-      <DependentUpon>Clients.cs</DependentUpon>
+    <Compile Include="View\Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainMenu.cs">
       <SubType>Form</SubType>
@@ -84,8 +85,8 @@
     <Compile Include="View\Positions.Designer.cs">
       <DependentUpon>Positions.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Clients.resx">
-      <DependentUpon>Clients.cs</DependentUpon>
+    <EmbeddedResource Include="View\Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

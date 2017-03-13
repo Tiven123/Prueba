@@ -8,7 +8,7 @@ namespace Model
 {
     public class EmployeeD
     {
-        private PostgressDataAccess connection;
+        /*private PostgressDataAccess connection;
 
         private bool error;
 
@@ -84,6 +84,6 @@ namespace Model
                 this.errorMsg = e.Message;
             }
             return positions;
-        }
+        }*/
     }
 }

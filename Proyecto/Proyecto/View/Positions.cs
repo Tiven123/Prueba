@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proyecto.Controller;
+using Controller;
 using Proyecto.Model;
 
 namespace Proyecto.View

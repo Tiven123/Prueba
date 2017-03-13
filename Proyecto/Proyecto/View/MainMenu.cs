@@ -29,5 +29,11 @@ namespace Proyecto
             Employees oEmployees = new Employees();
             oEmployees.ShowDialog();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Clients oClients = new Clients();
+            oClients.ShowDialog();
+        }
     }
 }

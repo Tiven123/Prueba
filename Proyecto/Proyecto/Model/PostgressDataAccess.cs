@@ -9,7 +9,7 @@ using NpgsqlTypes;
 using System.Xml;
 using System.Windows.Forms;
 
-namespace Proyecto.Model
+namespace Model
 {
     class PostgressDataAccess
     {

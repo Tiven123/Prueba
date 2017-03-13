@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
-using Proyecto.Model;
+using Model;
 
 namespace Proyecto.View
 {

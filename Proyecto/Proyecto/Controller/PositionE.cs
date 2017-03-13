@@ -57,7 +57,7 @@ namespace Controller
             this.Description = pDescription;
             this.Type = pType;
         }
-        public virtual string ToString()
+        public override string ToString()
         {
             return "Posición: " + this.positionCod + "\n" +
                 "Descripción: " + this.description + "\n" +

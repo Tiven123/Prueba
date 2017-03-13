@@ -47,6 +47,7 @@
             this.dataGridViewPositions.Location = new System.Drawing.Point(178, 12);
             this.dataGridViewPositions.Name = "dataGridViewPositions";
             this.dataGridViewPositions.ReadOnly = true;
+            this.dataGridViewPositions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridViewPositions.Size = new System.Drawing.Size(383, 263);
             this.dataGridViewPositions.TabIndex = 0;
             // 

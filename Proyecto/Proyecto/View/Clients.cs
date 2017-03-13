@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
+using Controller;
 
 namespace Proyecto.View
 {
@@ -15,9 +17,29 @@ namespace Proyecto.View
         public Clients()
         {
             InitializeComponent();
+            chargeDataGrid();
+            
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void chargeDataGrid()
+        {
+
+            ClientD oClients = new ClientD();
+            List<ClientE> Clients = oClients.getterClients();
+            this.dataGridView1.DataSource = Clients;/*
+            PositionD oPositionD = new PositionD();
+            List<PositionE> Positions = oPositionD.getPositions();
+
+            this.dataGridView1.DataSource = Positions;*/
+
+        }
+
+        private void Clients_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -102,7 +102,7 @@ namespace Controller
             this.Celphone = pCelphone;
             this.Address = pAddress;
         }
-        public virtual string ToString()
+        public override string ToString()
         {
             return "Nombre: " + this.name + "\n" +
                 "Apellido1: " + this.lastName1 + "\n" +

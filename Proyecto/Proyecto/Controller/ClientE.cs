@@ -51,8 +51,8 @@ namespace Controller
             }
         }
 
-        public ClientE(string pName, string pLastName1, string pLastName2, int pHousePhones, int pCelphone, string pAddress, 
-            string pCedula, int pOfficePhone, int pFax):base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
+        public ClientE(string pCedula, string pName, string pLastName1, string pLastName2, int pOfficePhone,
+              int pHousePhones, int pCelphone, int pFax, string pAddress):base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
         {
             this.Cedula = pCedula;
             this.OfficePhone = pOfficePhone;

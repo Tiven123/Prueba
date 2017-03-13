@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Controller;
 using System.Data;
+using Proyecto.Model;
 
 namespace Model
 {

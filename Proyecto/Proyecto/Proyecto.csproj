@@ -68,6 +68,7 @@
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
     <Compile Include="Model\ruebahjfbksjdbfsdf.cs" />
+    <Compile Include="Model\Validate.cs" />
     <Compile Include="View\Clients.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -59,6 +59,11 @@ namespace Controller
             this.Fax = pFax;
         }
 
+        public ClientE()
+        {
+
+        }
+
         public override string ToString()
         {
             return base.ToString() +

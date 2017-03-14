@@ -13,7 +13,7 @@ namespace Model
 {
     public class ClientD
     {
-        private PostgressDataAccess conecction;
+        private PostgressDataAccess connection;
 
         private bool error;
         public bool Error
@@ -29,7 +29,7 @@ namespace Model
 
         public ClientD()
             { 
-                this.conecction = PostgressDataAccess.Instance;
+                this.connection = PostgressDataAccess.Instance;
                 this.cleanError();
             }
 
@@ -39,17 +39,17 @@ namespace Model
             this.errorMsg = "";
         }
 
-        public List<ClientE> getterClients()
+        public List<ClientE> getClients()
         {
             this.cleanError();
             List<ClientE> clients = new List<ClientE>();
             DataSet dsetClients;//= new DataSet();
             try
             {
-                string sql = "select c.clientid as cedula, c.clientname as nombre, c.lastname1 as apellido1, c.lastname2 as apellido2, c.officephone as telefono_oficina, c.housephone as telefono_casa, c.celphone as celular, c.fax as fax, c.address as direccion " +
-                    "from client c;";
+                string sql = "SELECT c.clientid AS cedula, c.clientname AS nombre, c.lastname1 AS apellido1, c.lastname2 AS apellido2, c.officephone AS telefono_oficina, c.housephone AS telefono_casa, c.celphone AS celular, c.fax AS fax, c.address AS direccion " +
+                    "FROM client c;";
 
-                dsetClients = this.conecction.executeSQLQuery(sql);
+                dsetClients = this.connection.executeSQLQuery(sql);
                 foreach (DataRow tuple in dsetClients.Tables[0].Rows)
                 {
                     ClientE oClient = new ClientE(tuple["cedula"].ToString(), tuple["nombre"].ToString(), tuple["apellido1"].ToString(), 
@@ -65,18 +65,107 @@ namespace Model
             }
             return clients;
         }
-        public Boolean insertClient(ClientE clientN)
+        public Boolean insertClient(ClientE oClientN)
         {
-            return true;
+            this.cleanError();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "INSERT INTO client(clientid, clientname, lastname1, lastname2, officephone, housephone, celphone, fax, address)"+
+                    " VALUES (@clientid, @clientname, @lastname1, @lastname2, @officephone, @housephone, @celphone, @fax, @address);";
+
+                oParameters.addParameter("@clientid", NpgsqlDbType.Varchar, oClientN.Cedula);
+                oParameters.addParameter("@clientname", NpgsqlDbType.Varchar, oClientN.Name);
+                oParameters.addParameter("@lastname1", NpgsqlDbType.Varchar, oClientN.LastName1);
+                oParameters.addParameter("@lastname2", NpgsqlDbType.Varchar, oClientN.LastName2);
+                oParameters.addParameter("@officephone", NpgsqlDbType.Numeric, oClientN.OfficePhone);
+                oParameters.addParameter("@housephone", NpgsqlDbType.Numeric, oClientN.HousePhone);
+                oParameters.addParameter("@celphone", NpgsqlDbType.Numeric, oClientN.Celphone);
+                oParameters.addParameter("@fax", NpgsqlDbType.Numeric, oClientN.Fax);
+                oParameters.addParameter("@address", NpgsqlDbType.Varchar, oClientN.Address);
+
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
+            
         }
 
-        public Boolean modifyClient(ClientE clientN)
+        public Boolean updateClient(ClientE oClientN)
         {
-            return true;
+            this.cleanError();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "UPDATE client SET clientname = @clientname, lastname1 = @lastname1, lastname2 = @lastname2," +
+                    " officephone = @officephone, housephone = @housephone, celphone = @celphone, fax = @fax, address = @address"+
+                    " WHERE clientid = @clientid;";
+
+                oParameters.addParameter("@clientid", NpgsqlDbType.Varchar, oClientN.Cedula);
+                oParameters.addParameter("@clientname", NpgsqlDbType.Varchar, oClientN.Name);
+                oParameters.addParameter("@lastname1", NpgsqlDbType.Varchar, oClientN.LastName1);
+                oParameters.addParameter("@lastname2", NpgsqlDbType.Varchar, oClientN.LastName2);
+                oParameters.addParameter("@officephone", NpgsqlDbType.Numeric, oClientN.OfficePhone);
+                oParameters.addParameter("@housephone", NpgsqlDbType.Numeric, oClientN.HousePhone);
+                oParameters.addParameter("@celphone", NpgsqlDbType.Numeric, oClientN.Celphone);
+                oParameters.addParameter("@fax", NpgsqlDbType.Numeric, oClientN.Fax);
+                oParameters.addParameter("@address", NpgsqlDbType.Varchar, oClientN.Address);
+
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
         }
-        public Boolean deleteClient(ClientE clientN)
+        public Boolean deleteClient(string id)
         {
-            return true;
+            this.cleanError();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "DELETE FROM client WHERE clientid = @id;";
+
+                oParameters.addParameter("@id", NpgsqlDbType.Varchar, id);
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+                
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
         }
 
     }

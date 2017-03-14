@@ -102,6 +102,11 @@ namespace Controller
             this.Celphone = pCelphone;
             this.Address = pAddress;
         }
+
+        public PersonE()
+        {
+
+        }
         public override string ToString()
         {
             return "Nombre: " + this.name + "\n" +

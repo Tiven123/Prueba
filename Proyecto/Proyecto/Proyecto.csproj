@@ -69,6 +69,9 @@
     <Compile Include="Model\PositionD.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
+    <Compile Include="Model\RepairD.cs" />
+    <Compile Include="Model\ReplacementD.cs" />
+    <Compile Include="Model\ruebahjfbksjdbfsdf.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="View\Brands.cs">
       <SubType>Form</SubType>

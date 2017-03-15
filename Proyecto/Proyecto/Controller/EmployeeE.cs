@@ -13,10 +13,10 @@ namespace Controller
         private int positionCod;
         private string userName;
         private string password;
-        private bool parameters;
-        private bool systemAccess;
-        private bool orderManagerAccess;
-        private bool managerMagnamentAccess;
+        private char parameters;
+        private char systemAccess;
+        private char orderManagerAccess;
+        private char managerMagnamentAccess;
 
         public int EmployeeCod
         {
@@ -70,7 +70,7 @@ namespace Controller
             }
         }
 
-        public bool SystemAccess
+        public char SystemAccess
         {
             get
             {
@@ -83,7 +83,7 @@ namespace Controller
             }
         }
 
-        public bool OrderManagerAccess
+        public char OrderManagerAccess
         {
             get
             {
@@ -96,7 +96,7 @@ namespace Controller
             }
         }
 
-        public bool ManagerMagnamentAccess
+        public char ManagerMagnamentAccess
         {
             get
             {
@@ -109,7 +109,7 @@ namespace Controller
             }
         }
 
-        public bool Parameters
+        public char Parameters
         {
             get
             {
@@ -135,9 +135,26 @@ namespace Controller
             }
         }
 
-        public EmployeeE(string pName, string pLastName1, string pLastName2, int pHousePhones, int pCelphone, string pAddress,
-                        int pEmployeeCod, PositionE pPosition, string pUserName, string pPassword, bool pParameters, bool pSystemAccess,
-                        bool pOrderManagerAccess, bool pManagerMagnamentAccess) : base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
+        public EmployeeE(string pName,
+                        string pLastName1,
+                        string pLastName2,
+                        int pHousePhones,
+                        int pCelphone,
+                        string pAddress,
+                        int pEmployeeCod,
+                        PositionE pPosition,
+                        string pUserName,
+                        string pPassword,
+                        char pParameters,
+                        char pSystemAccess,
+                        char pOrderManagerAccess,
+                        char pManagerMagnamentAccess) :
+                        base(pName,
+                            pLastName1,
+                            pLastName2,
+                            pHousePhones,
+                            pCelphone,
+                            pAddress)
         {
             this.EmployeeCod = pEmployeeCod;
             this.Position = pPosition;
@@ -149,9 +166,26 @@ namespace Controller
             this.ManagerMagnamentAccess = pManagerMagnamentAccess;
         }
 
-        public EmployeeE(string pName, string pLastName1, string pLastName2, int pHousePhones, int pCelphone, string pAddress,
-                        int pEmployeeCod, int pPositionCod, string pUserName, string pPassword, bool pParameters, bool pSystemAccess,
-                        bool pOrderManagerAccess, bool pManagerMagnamentAccess) : base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
+        public EmployeeE(string pName,
+                        string pLastName1,
+                        string pLastName2,
+                        int pHousePhones,
+                        int pCelphone,
+                        string pAddress,
+                        int pEmployeeCod,
+                        int pPositionCod,
+                        string pUserName,
+                        string pPassword,
+                        char pParameters,
+                        char pSystemAccess,
+                        char pOrderManagerAccess,
+                        char pManagerMagnamentAccess) :
+                        base(pName,
+                            pLastName1,
+                            pLastName2,
+                            pHousePhones,
+                            pCelphone,
+                            pAddress)
         {
             this.EmployeeCod = pEmployeeCod;
             this.PositionCod = pPositionCod;

@@ -14,10 +14,10 @@ namespace Proyecto.View
 {
     public partial class Employees : Form
     {
-        bool systemAccessBool = false;
-        bool parametersBool = false;
-        bool orderManagerAccessBool = false;
-        bool managerMagnamentAccessBool = false;
+        char systemAccess = 'F';
+        char parametersAccess = 'F';
+        char orderManagerAccess = 'F';
+        char managerMagnamentAccess = 'F';
 
         public Employees()
         {
@@ -55,22 +55,22 @@ namespace Proyecto.View
         {
             if (this.checkBoxMagnamentManager.Checked)
             {
-                this.managerMagnamentAccessBool = true;
+                this.managerMagnamentAccess = 'T';
             }
 
             if (this.checkBoxOrderManager.Checked)
             {
-                orderManagerAccessBool = true;
+                orderManagerAccess = 'T';
             }
 
             if (this.checkBoxParameters.Checked)
             {
-                parametersBool = true;
+                parametersAccess = 'T';
             }
 
             if (this.checkBoxSystemAccess.Checked)
             {
-                systemAccessBool = true;
+                systemAccess = 'T';
             }
 
             if ((this.textBoxAddress.Text == "") || (this.textBoxCelPhone.Text == "") || (this.textBoxHousePhone.Text == "") || 
@@ -86,20 +86,21 @@ namespace Proyecto.View
                 EmployeeD oEmployeeD = new EmployeeD();
                 //PositionE oPositionE = (PositionE)this.comboBoxPosition.SelectedItem;
                 EmployeeE oEmployeeE = new EmployeeE(this.textBoxName.Text,
-                this.textBoxLastName1.Text,
-                this.textBoxLastName2.Text,
-                int.Parse(this.textBoxHousePhone.Text),
-                int.Parse(this.textBoxCelPhone.Text),
-                this.textBoxAddress.Text,
-                int.Parse(this.textBoxEmployeeCod.Text),
-                2,
-                this.textBoxUserName.Text, 
-                this.textBoxPassword.Text,
-                parametersBool,
-                systemAccessBool,
-                orderManagerAccessBool,
-                managerMagnamentAccessBool);
+                                                    this.textBoxLastName1.Text,
+                                                    this.textBoxLastName2.Text,
+                                                    int.Parse(this.textBoxHousePhone.Text),
+                                                    int.Parse(this.textBoxCelPhone.Text),
+                                                    this.textBoxAddress.Text,
+                                                    int.Parse(this.textBoxEmployeeCod.Text),
+                                                    2,
+                                                    this.textBoxUserName.Text, 
+                                                    this.textBoxPassword.Text,
+                                                    parametersAccess,
+                                                    systemAccess,
+                                                    orderManagerAccess,
+                                                    managerMagnamentAccess);
 
+                oEmployeeD.insertEmployee(oEmployeeE);
                 if (oEmployeeD.Error)
                 {
                     MessageBox.Show("Error insertando los datos: " +

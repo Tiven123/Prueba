@@ -47,11 +47,11 @@ namespace Model
             try
             {
                 string sql = "INSERT INTO employee(employeecod, employeeposition, employee_name, employee_last_name1, employee_last_name2, " +
-                    "address, housephone, celphone, employeeuser, employeepassword, systemaccess, parameters, orderadmin, managementmanager) " +
+                    "address, housephone, celphone, employeeuser, employeepassword, system_access, parameters_access, ordersadmin_access, management_manager) " +
                     "VALUES (@employeecod, @employeeposition, @employee_name, @employee_last_name1, @employee_last_name2, " +
-                    "@address, @housephone, @celphone, @employeeuser, @employeepassword, @systemaccess, @parameters, @orderadmin, @managementmanager);";
+                    "@address, @housephone, @celphone, @employeeuser, @employeepassword, @system_access, @parameters_access, @ordersadmin_access, @management_manager);";
                 oParameters.addParameter("@employeecod", NpgsqlDbType.Integer, oEmployeeE.EmployeeCod);
-                oParameters.addParameter("@employeeposition", NpgsqlDbType.Integer, oEmployeeE.Position.PositionCod);
+                oParameters.addParameter("@employeeposition", NpgsqlDbType.Integer, oEmployeeE.PositionCod);
                 oParameters.addParameter("@employee_name", NpgsqlDbType.Varchar, oEmployeeE.Name);
                 oParameters.addParameter("@employee_last_name1", NpgsqlDbType.Varchar, oEmployeeE.LastName1);
                 oParameters.addParameter("@employee_last_name2", NpgsqlDbType.Varchar, oEmployeeE.LastName2);
@@ -60,10 +60,10 @@ namespace Model
                 oParameters.addParameter("@celphone", NpgsqlDbType.Integer, oEmployeeE.Celphone);
                 oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, oEmployeeE.UserName);
                 oParameters.addParameter("@employeepassword", NpgsqlDbType.Varchar, oEmployeeE.Password);
-                oParameters.addParameter("@systemaccess", NpgsqlDbType.Boolean, oEmployeeE.SystemAccess);
-                oParameters.addParameter("@parameters", NpgsqlDbType.Boolean, oEmployeeE.Parameters);
-                oParameters.addParameter("@orderadmin", NpgsqlDbType.Boolean, oEmployeeE.OrderManagerAccess);
-                oParameters.addParameter("@managementmanager", NpgsqlDbType.Boolean, oEmployeeE.ManagerMagnamentAccess);
+                oParameters.addParameter("@system_access", NpgsqlDbType.Char, oEmployeeE.SystemAccess);
+                oParameters.addParameter("@parameters_access", NpgsqlDbType.Char, oEmployeeE.Parameters);
+                oParameters.addParameter("@ordersadmin_access", NpgsqlDbType.Char, oEmployeeE.OrderManagerAccess);
+                oParameters.addParameter("@management_manager", NpgsqlDbType.Char, oEmployeeE.ManagerMagnamentAccess);
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
                 if (this.connection.IsError)
@@ -86,21 +86,28 @@ namespace Model
             DataSet dsetEmployees;
             try
             {
-                string sql = "select p.employeecod as employeecod_desc, p.employee_name as employeename_desc, p.employee_last_name1 as employeelastname1_desc " +
-                         "p.employee_last_name2 as employeelastname2_desc, p.employeeposition as employeeposition_desc, p.address as address_desc, p.housephone as housephone_desc " +
-                         "p.celphone as celphone__desc, p.employeeuser as employeeuser_desc, p.employeepassword as employeepassword_desc, p.systemaccess as systemaccess_desc " +
-                         "p.parameters as parameters_desc, p.ordersadmin as ordersadmin_desc, p.managementmanager as managementmanager_desc from employee p;";
+                string sql = "select p.employeecod as employeecod_desc, p.employee_name as employeename_desc, p.employee_last_name1 as employeelastname1_desc, " +
+                         "p.employee_last_name2 as employeelastname2_desc, p.employeeposition as employeeposition_desc, p.address as address_desc, p.housephone as housephone_desc, " +
+                         "p.celphone as celphone_desc, p.employeeuser as employeeuser_desc, p.employeepassword as employeepassword_desc, p.system_access as systemaccess_desc, " +
+                         "p.parameters_access as parameters_desc, p.ordersadmin_access as ordersadmin_desc, p.management_manager as managementmanager_desc from employee p;";
                 dsetEmployees = this.connection.executeSQLQuery(sql);
 
                 foreach (DataRow tupla in dsetEmployees.Tables[0].Rows)
                 {
-                    EmployeeE oEmployeeE = new EmployeeE(tupla["employeename_desc"].ToString(), tupla["employeelastname1_desc"].ToString(), 
-                        tupla["employeelastname2_desc"].ToString(), int.Parse(tupla["housephone_desc"].ToString()), 
-                        int.Parse(tupla["celphone__desc"].ToString()), tupla["address_desc"].ToString(), 
-                        int.Parse(tupla["employeecod_desc"].ToString()), int.Parse(tupla["employeeposition_desc"].ToString()), 
-                        tupla["employeeuser_desc"].ToString(), tupla["employeepassword_desc"].ToString(), 
-                        bool.Parse(tupla["parameters_desc"].ToString()), bool.Parse(tupla["systemaccess_desc"].ToString()), 
-                        bool.Parse(tupla["ordersadmin_desc"].ToString()), bool.Parse(tupla["managementmanager_desc"].ToString()));
+                    EmployeeE oEmployeeE = new EmployeeE(tupla["employeename_desc"].ToString(),
+                        tupla["employeelastname1_desc"].ToString(),
+                        tupla["employeelastname2_desc"].ToString(),
+                        int.Parse(tupla["housephone_desc"].ToString()),
+                        int.Parse(tupla["celphone_desc"].ToString()),
+                        tupla["address_desc"].ToString(),
+                        int.Parse(tupla["employeecod_desc"].ToString()),
+                        int.Parse(tupla["employeeposition_desc"].ToString()),
+                        tupla["employeeuser_desc"].ToString(),
+                        tupla["employeepassword_desc"].ToString(),
+                        char.Parse(tupla["parameters_desc"].ToString()),
+                        char.Parse(tupla["systemaccess_desc"].ToString()),
+                        char.Parse(tupla["ordersadmin_desc"].ToString()),
+                        char.Parse(tupla["managementmanager_desc"].ToString()));
                     positions.Add(oEmployeeE);
                 }
             }

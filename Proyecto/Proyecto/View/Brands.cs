@@ -85,5 +85,43 @@ namespace Proyecto.View
                 MessageBox.Show("Error al insertar marca: " + oBreandD.ErrorMsg);
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string code = dataGridView1.CurrentRow.Cells["Code"].Value.ToString();
+            if (oBreandD.deleteBrand(code))
+            {
+                MessageBox.Show("Marca eliminada exitosamente");
+                chargeDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Error al elimimar marca: " + oBreandD.ErrorMsg);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCode.Text = dataGridView1.CurrentRow.Cells["Code"].Value.ToString();
+            txtDescription.Text = dataGridView1.CurrentRow.Cells["Description"].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string code = dataGridView1.CurrentRow.Cells["Code"].Value.ToString();
+            BrandE oBrandE = createBrandE();
+            if (oBrandE != null)
+            {
+                if (oBreandD.updateBrand(oBrandE))
+                {
+                    MessageBox.Show("Marca modificada correctamente");
+                    chargeDataGrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar marca: " + oBreandD.ErrorMsg);
+            }
+        }
     }
 }

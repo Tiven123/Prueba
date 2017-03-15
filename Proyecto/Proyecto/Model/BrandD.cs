@@ -91,26 +91,18 @@ namespace Model
             }
 
         }
-        /*
-        public Boolean updateClient(ClientE oClientN)
+        
+        public Boolean updateBrand(BrandE oBrandE)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
             try
             {
-                string sql = "UPDATE client SET clientname = @clientname, lastname1 = @lastname1, lastname2 = @lastname2," +
-                    " officephone = @officephone, housephone = @housephone, celphone = @celphone, fax = @fax, address = @address" +
-                    " WHERE clientid = @clientid;";
+                string sql = "UPDATE brand SET branddescription = @branddescription" +
+                    " WHERE brandcod = @brandcod;";
 
-                oParameters.addParameter("@clientid", NpgsqlDbType.Varchar, oClientN.Cedula);
-                oParameters.addParameter("@clientname", NpgsqlDbType.Varchar, oClientN.Name);
-                oParameters.addParameter("@lastname1", NpgsqlDbType.Varchar, oClientN.LastName1);
-                oParameters.addParameter("@lastname2", NpgsqlDbType.Varchar, oClientN.LastName2);
-                oParameters.addParameter("@officephone", NpgsqlDbType.Numeric, oClientN.OfficePhone);
-                oParameters.addParameter("@housephone", NpgsqlDbType.Numeric, oClientN.HousePhone);
-                oParameters.addParameter("@celphone", NpgsqlDbType.Numeric, oClientN.Celphone);
-                oParameters.addParameter("@fax", NpgsqlDbType.Numeric, oClientN.Fax);
-                oParameters.addParameter("@address", NpgsqlDbType.Varchar, oClientN.Address);
+                oParameters.addParameter("@brandcod", NpgsqlDbType.Numeric, oBrandE.Code);
+                oParameters.addParameter("@branddescription", NpgsqlDbType.Varchar, oBrandE.Description);
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
 
@@ -129,15 +121,15 @@ namespace Model
                 return false;
             }
         }
-        public Boolean deleteClient(string id)
+        public Boolean deleteBrand(string code)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
             try
             {
-                string sql = "DELETE FROM client WHERE clientid = @id;";
+                string sql = "DELETE FROM brand WHERE brandcod = @brandcod;";
 
-                oParameters.addParameter("@id", NpgsqlDbType.Varchar, id);
+                oParameters.addParameter("@brandcod", NpgsqlDbType.Numeric, code);
                 this.connection.executeSQL(sql, oParameters.getParameter());
 
                 if (this.connection.IsError)
@@ -155,6 +147,6 @@ namespace Model
                 this.errorMsg = e.Message;
                 return false;
             }
-        }*/
+        }
     }
 }

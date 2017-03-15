@@ -8,5 +8,67 @@ namespace Controller
 {
     public class ModelE
     {
+        int code;
+        int brand;
+        string description;
+
+        public int Code
+        {
+            get
+            {
+                return code;
+            }
+
+            set
+            {
+                code = value;
+            }
+        }
+
+        public int Brand
+        {
+            get
+            {
+                return brand;
+            }
+
+            set
+            {
+                brand = value;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+
+            set
+            {
+                description = value;
+            }
+        }
+
+        public ModelE()
+        {
+
+        }
+
+        public ModelE(int code, int brand, string description)
+        {
+            this.Code = code;
+            this.Brand = brand;
+            this.Description = description;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString()+
+                "Codigo: " + this.Code + "\n" +
+                "Marca: " + this.Brand + "\n" +
+                "Descripcion: " + this.Description;
+        }
     }
 }

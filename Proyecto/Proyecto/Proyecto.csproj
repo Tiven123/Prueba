@@ -102,6 +102,9 @@
     <Compile Include="View\Positions.Designer.cs">
       <DependentUpon>Positions.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Brands.resx">
+      <DependentUpon>Brands.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
     </EmbeddedResource>

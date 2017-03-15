@@ -19,15 +19,15 @@ namespace Proyecto.View
         public Clients()
         {
             InitializeComponent();
-            chargeDataGrid();
             oClienteD = new ClientD();
+            chargeDataGrid();
+            
         }
 
         public void chargeDataGrid()
         {
 
-            ClientD oClients = new ClientD();
-            List<ClientE> Clients = oClients.getClients();
+            List<ClientE> Clients = oClienteD.getClients();
             this.dataGridView1.DataSource = Clients;
 
         }

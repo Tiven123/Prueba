@@ -33,12 +33,18 @@ namespace Proyecto
         private void button6_Click(object sender, EventArgs e)
         {
             Clients oClients = new Clients();
-            oClients.ShowDialog();
+            oClients.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBrands_Click(object sender, EventArgs e)
+        {
+            Brands oBrands = new Brands();
+            oBrands.Show();
         }
     }
 }

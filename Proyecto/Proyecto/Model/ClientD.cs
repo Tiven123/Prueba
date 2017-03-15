@@ -43,7 +43,7 @@ namespace Model
         {
             this.cleanError();
             List<ClientE> clients = new List<ClientE>();
-            DataSet dsetClients;//= new DataSet();
+            DataSet dsetClients;
             try
             {
                 string sql = "SELECT c.clientid AS cedula, c.clientname AS nombre, c.lastname1 AS apellido1, c.lastname2 AS apellido2, c.officephone AS telefono_oficina, c.housephone AS telefono_casa, c.celphone AS celular, c.fax AS fax, c.address AS direccion " +

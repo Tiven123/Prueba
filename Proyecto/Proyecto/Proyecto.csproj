@@ -52,10 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\BrandE.cs" />
     <Compile Include="Controller\ClientE.cs" />
     <Compile Include="Controller\EmployeeE.cs" />
+    <Compile Include="Controller\ModelE.cs" />
     <Compile Include="Controller\PersonE.cs" />
     <Compile Include="Controller\PositionE.cs" />
+    <Compile Include="Controller\RepairE.cs" />
+    <Compile Include="Controller\ReplacementE.cs" />
     <Compile Include="Model\ClientD.cs" />
     <Compile Include="Model\EmployeeD.cs" />
     <Compile Include="Model\BrandD.cs" />
@@ -66,6 +70,12 @@
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
     <Compile Include="Model\Validate.cs" />
+    <Compile Include="View\Brands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Brands.Designer.cs">
+      <DependentUpon>Brands.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Clients.cs">
       <SubType>Form</SubType>
     </Compile>

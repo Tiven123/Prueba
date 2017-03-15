@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,16 +46,17 @@
             this.dataGridViewPositions.AllowUserToAddRows = false;
             this.dataGridViewPositions.AllowUserToDeleteRows = false;
             this.dataGridViewPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPositions.Location = new System.Drawing.Point(178, 12);
+            this.dataGridViewPositions.Location = new System.Drawing.Point(185, 12);
             this.dataGridViewPositions.Name = "dataGridViewPositions";
             this.dataGridViewPositions.ReadOnly = true;
             this.dataGridViewPositions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dataGridViewPositions.Size = new System.Drawing.Size(383, 263);
+            this.dataGridViewPositions.Size = new System.Drawing.Size(440, 270);
             this.dataGridViewPositions.TabIndex = 0;
+            this.dataGridViewPositions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellContentClick);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(47, 214);
+            this.btnAdd.Location = new System.Drawing.Point(58, 194);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -65,21 +68,21 @@
             // 
             this.textBoxPositionCod.Location = new System.Drawing.Point(21, 42);
             this.textBoxPositionCod.Name = "textBoxPositionCod";
-            this.textBoxPositionCod.Size = new System.Drawing.Size(130, 20);
+            this.textBoxPositionCod.Size = new System.Drawing.Size(158, 20);
             this.textBoxPositionCod.TabIndex = 2;
             // 
             // textBoxDescription
             // 
             this.textBoxDescription.Location = new System.Drawing.Point(21, 97);
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(130, 20);
+            this.textBoxDescription.Size = new System.Drawing.Size(158, 20);
             this.textBoxDescription.TabIndex = 3;
             // 
             // textBoxPositionType
             // 
             this.textBoxPositionType.Location = new System.Drawing.Point(21, 156);
             this.textBoxPositionType.Name = "textBoxPositionType";
-            this.textBoxPositionType.Size = new System.Drawing.Size(130, 20);
+            this.textBoxPositionType.Size = new System.Drawing.Size(158, 20);
             this.textBoxPositionType.TabIndex = 4;
             // 
             // label1
@@ -109,11 +112,33 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Tipo de Posición";
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(58, 252);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 8;
+            this.buttonDelete.Text = "Eliminar";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(58, 223);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.TabIndex = 9;
+            this.buttonEdit.Text = "Editar";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
             // Positions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 288);
+            this.ClientSize = new System.Drawing.Size(637, 294);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -140,5 +165,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }

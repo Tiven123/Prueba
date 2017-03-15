@@ -55,6 +55,8 @@
             this.textBoxCelPhone = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,10 +68,11 @@
             this.dataGridViewEmployees.Name = "dataGridViewEmployees";
             this.dataGridViewEmployees.Size = new System.Drawing.Size(536, 482);
             this.dataGridViewEmployees.TabIndex = 0;
+            this.dataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellContentClick);
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(96, 455);
+            this.btnAddEmployee.Location = new System.Drawing.Point(26, 455);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(75, 23);
             this.btnAddEmployee.TabIndex = 1;
@@ -292,11 +295,33 @@
             this.textBoxPassword.Size = new System.Drawing.Size(150, 20);
             this.textBoxPassword.TabIndex = 23;
             // 
+            // buttonEditar
+            // 
+            this.buttonEditar.Location = new System.Drawing.Point(107, 455);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.TabIndex = 24;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(188, 455);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEliminar.TabIndex = 25;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 506);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.textBoxCelPhone);
@@ -360,5 +385,7 @@
         private System.Windows.Forms.TextBox textBoxCelPhone;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonEliminar;
     }
 }

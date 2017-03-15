@@ -118,5 +118,79 @@ namespace Model
             }
             return positions;
         }
+
+        public Boolean updateEmployee(EmployeeE oEmployeeE, int pEmployeeCod)
+        {
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "UPDATE employee SET employeecod = @employeecod, employeeposition = @employeeposition, address = @address, " +
+                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = @employeepassword, " +
+                    "employee_name = @employee_name, employee_last_name1 = @employee_last_name1, employee_last_name2 = @employee_last_name2, " +
+                    "parameters_access = @parameters_access, system_access = @system_access, ordersadmin_access = @ordersadmin_access, " +
+                    "management_manager = @management_manager WHERE employeecod = @pemployeecod;";
+
+                oParameters.addParameter("@employeecod", NpgsqlDbType.Integer, oEmployeeE.EmployeeCod);
+                oParameters.addParameter("@employeeposition", NpgsqlDbType.Integer, oEmployeeE.PositionCod);
+                oParameters.addParameter("@address", NpgsqlDbType.Varchar, oEmployeeE.Address);
+                oParameters.addParameter("@housephone", NpgsqlDbType.Integer, oEmployeeE.HousePhone);
+                oParameters.addParameter("@celphone", NpgsqlDbType.Integer, oEmployeeE.Celphone);
+                oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, oEmployeeE.UserName);
+                oParameters.addParameter("@employeepassword", NpgsqlDbType.Varchar, oEmployeeE.Password);
+                oParameters.addParameter("@employee_name", NpgsqlDbType.Varchar, oEmployeeE.Name);
+                oParameters.addParameter("@employee_last_name1", NpgsqlDbType.Varchar, oEmployeeE.LastName1);
+                oParameters.addParameter("@employee_last_name2", NpgsqlDbType.Varchar, oEmployeeE.LastName2);
+                oParameters.addParameter("@parameters_access", NpgsqlDbType.Char, oEmployeeE.Parameters);
+                oParameters.addParameter("@system_access", NpgsqlDbType.Char, oEmployeeE.SystemAccess);
+                oParameters.addParameter("@ordersadmin_access", NpgsqlDbType.Char, oEmployeeE.OrderManagerAccess);
+                oParameters.addParameter("@management_manager", NpgsqlDbType.Char, oEmployeeE.ManagerMagnamentAccess);
+                oParameters.addParameter("@pemployeecod", NpgsqlDbType.Integer, pEmployeeCod);
+
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
+        }
+
+        public Boolean deleteEmployee(int pEmployeeCod)
+        {
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "DELETE FROM employee WHERE employeecod = @pemployeecod;";
+
+                oParameters.addParameter("@pemployeecod", NpgsqlDbType.Integer, pEmployeeCod);
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
+        }
     }
 }

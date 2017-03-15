@@ -114,5 +114,62 @@ namespace Proyecto.View
                 }
             }
         }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            EmployeeD oEmployeeD = new EmployeeD();
+            int pEmployeeCod = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["EmployeeCod"].Value.ToString());
+            //this.textBoxPositionCod
+            EmployeeE oEmployeeE = new EmployeeE(this.textBoxName.Text,
+                                                     this.textBoxLastName1.Text,
+                                                     this.textBoxLastName2.Text,
+                                                     int.Parse(this.textBoxHousePhone.Text),
+                                                     int.Parse(this.textBoxCelPhone.Text),
+                                                     this.textBoxAddress.Text,
+                                                     int.Parse(this.textBoxEmployeeCod.Text),
+                                                     2,
+                                                     this.textBoxUserName.Text,
+                                                     this.textBoxPassword.Text,
+                                                     parametersAccess,
+                                                     systemAccess,
+                                                     orderManagerAccess,
+                                                     managerMagnamentAccess);
+
+            if (oEmployeeD.updateEmployee(oEmployeeE, pEmployeeCod))
+            {
+                MessageBox.Show("Empleado modificado correctamente");
+                chargeDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar empleado: " + oEmployeeD.ErrorMsg);
+            }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            EmployeeD oEmployeeD = new EmployeeD();
+            int id = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["EmployeeCod"].Value.ToString());
+            if (oEmployeeD.deleteEmployee(id))
+            {
+                MessageBox.Show("Empleado eliminado exitosamente");
+                chargeDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Error al elimimar empleado: " + oEmployeeD.ErrorMsg);
+            }
+        }
+
+        private void dataGridViewEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.textBoxAddress.Text = dataGridViewEmployees.CurrentRow.Cells["Address"].Value.ToString();
+            this.textBoxCelPhone.Text = dataGridViewEmployees.CurrentRow.Cells["CelPhone"].Value.ToString();
+            this.textBoxEmployeeCod.Text = dataGridViewEmployees.CurrentRow.Cells["EmployeeCod"].Value.ToString();
+            this.textBoxHousePhone.Text = dataGridViewEmployees.CurrentRow.Cells["HousePhone"].Value.ToString();
+            this.textBoxLastName1.Text = dataGridViewEmployees.CurrentRow.Cells["LastName1"].Value.ToString();
+            this.textBoxLastName2.Text = dataGridViewEmployees.CurrentRow.Cells["LastName2"].Value.ToString();
+            this.textBoxName.Text = dataGridViewEmployees.CurrentRow.Cells["Name"].Value.ToString();
+        }
     }
 }

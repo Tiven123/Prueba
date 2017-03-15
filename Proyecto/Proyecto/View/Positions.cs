@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 using Model;
@@ -58,6 +52,46 @@ namespace Proyecto.View
                     chargeDataGrid();
                 }
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            PositionD oPositionD = new PositionD();
+            int id = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
+            if (oPositionD.deletePosition(id))
+            {
+                MessageBox.Show("Posicion eliminada exitosamente");
+                chargeDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Error al elimimar posición: " + oPositionD.ErrorMsg);
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            PositionD oPositionD = new PositionD();
+            int pPositionCod = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
+            //this.textBoxPositionCod
+            PositionE oPositionE = new PositionE(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text);    
+            if (oPositionD.updatePosition(oPositionE, pPositionCod))
+            {
+                MessageBox.Show("Posición modificada correctamente");
+                chargeDataGrid();
+                
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar posicion: " + oPositionD.ErrorMsg);
+            }
+        }
+
+        private void dataGridViewPositions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.textBoxPositionCod.Text = dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString();
+            this.textBoxDescription.Text = dataGridViewPositions.CurrentRow.Cells["Description"].Value.ToString();
+            this.textBoxPositionType.Text = dataGridViewPositions.CurrentRow.Cells["Type"].Value.ToString();
         }
     }
 }

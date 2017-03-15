@@ -90,5 +90,65 @@ namespace Model
             }
             return positions;
         }
+
+        public Boolean updatePosition(PositionE oPositionE, int pPositionCod)
+        {
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "UPDATE employeeposition SET positioncod = @positioncod, description = @description, " +
+                    "positiontype = @positiontype WHERE positioncod = @ppositioncod;";
+
+                oParameters.addParameter("@positioncod", NpgsqlDbType.Integer, oPositionE.PositionCod);
+                oParameters.addParameter("@description", NpgsqlDbType.Varchar, oPositionE.Description);
+                oParameters.addParameter("@positiontype", NpgsqlDbType.Varchar, oPositionE.Type);
+                oParameters.addParameter("@ppositioncod", NpgsqlDbType.Integer, pPositionCod);
+
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
+        }
+
+        public Boolean deletePosition(int pPositionCod)
+        {
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "DELETE FROM employeeposition WHERE positioncod = @positioncod;";
+
+                oParameters.addParameter("@positioncod", NpgsqlDbType.Integer, pPositionCod);
+                this.connection.executeSQL(sql, oParameters.getParameter());
+
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+                return false;
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    public class ClienteE
+    public class RepairE
     {
         int consecutive;
         string description;
@@ -65,12 +65,12 @@ namespace Controller
             }
         }
 
-        public ClienteE()
+        public RepairE()
         {
 
         }
 
-        public ClienteE(int consecutive, string description, int hours, int cost)
+        public RepairE(int consecutive, string description, int hours, int cost)
         {
             this.Consecutive = consecutive;
             this.Description = description;

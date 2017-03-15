@@ -38,10 +38,10 @@ namespace Model
             this.errorMsg = "";
         }
 
-        public List<ClienteE> get()
+        public List<RepairE> get()
         {
             this.cleanError();
-            List<ClienteE> repairs = new List<ClienteE>();
+            List<RepairE> repairs = new List<RepairE>();
             DataSet dataBD;
             try
             {
@@ -51,7 +51,7 @@ namespace Model
                 dataBD = this.connection.executeSQLQuery(sql);
                 foreach (DataRow tuple in dataBD.Tables[0].Rows)
                 {
-                    ClienteE oRepairE = new ClienteE(int.Parse(tuple["codigo"].ToString()), tuple["descripcion"].ToString(), int.Parse(tuple["horas"].ToString()),
+                    RepairE oRepairE = new RepairE(int.Parse(tuple["codigo"].ToString()), tuple["descripcion"].ToString(), int.Parse(tuple["horas"].ToString()),
                         int.Parse(tuple["costo"].ToString()));
                     repairs.Add(oRepairE);
                 }
@@ -63,7 +63,7 @@ namespace Model
             }
             return repairs;
         }
-        public Boolean insert(ClienteE oRepairE)
+        public Boolean insert(RepairE oRepairE)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
@@ -97,7 +97,7 @@ namespace Model
 
         }
 
-        public Boolean update(ClienteE oRepairE)
+        public Boolean update(RepairE oRepairE)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();

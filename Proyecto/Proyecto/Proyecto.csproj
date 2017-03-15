@@ -60,6 +60,7 @@
     <Compile Include="Controller\PositionE.cs" />
     <Compile Include="Controller\RepairE.cs" />
     <Compile Include="Controller\ReplacementE.cs" />
+    <Compile Include="Controller\VehicleE.cs" />
     <Compile Include="Model\ClientD.cs" />
     <Compile Include="Model\EmployeeD.cs" />
     <Compile Include="Model\BrandD.cs" />
@@ -67,12 +68,11 @@
     <Compile Include="Model\Parameters.cs" />
     <Compile Include="Model\PersonD.cs" />
     <Compile Include="Model\PositionD.cs" />
-    <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
     <Compile Include="Model\RepairD.cs" />
     <Compile Include="Model\ReplacementD.cs" />
-    <Compile Include="Model\ruebahjfbksjdbfsdf.cs" />
     <Compile Include="Model\Validate.cs" />
+    <Compile Include="Model\VehicleD.cs" />
     <Compile Include="View\Brands.cs">
       <SubType>Form</SubType>
     </Compile>

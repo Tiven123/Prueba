@@ -52,10 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\BrandE.cs" />
     <Compile Include="Controller\ClientE.cs" />
     <Compile Include="Controller\EmployeeE.cs" />
-    <Compile Include="Controller\ModelE.cs" />
     <Compile Include="Controller\PersonE.cs" />
     <Compile Include="Controller\PositionE.cs" />
     <Compile Include="Model\ClientD.cs" />
@@ -67,7 +65,6 @@
     <Compile Include="Model\PositionD.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
-    <Compile Include="Model\ruebahjfbksjdbfsdf.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="View\Clients.cs">
       <SubType>Form</SubType>

@@ -7,7 +7,7 @@ using Controller;
 using System.Data;
 using NpgsqlTypes;
 using Npgsql;
-using Proyecto.Model;
+using Model;
 
 namespace Model
 {

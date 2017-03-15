@@ -8,15 +8,17 @@ namespace Controller
 {
     public class EmployeeE : PersonE
     {
-        private string employeeCod;
+        private int employeeCod;
         private PositionE position;
+        private int positionCod;
         private string userName;
         private string password;
+        private bool parameters;
         private bool systemAccess;
         private bool orderManagerAccess;
         private bool managerMagnamentAccess;
 
-        public string EmployeeCod
+        public int EmployeeCod
         {
             get
             {
@@ -107,14 +109,55 @@ namespace Controller
             }
         }
 
+        public bool Parameters
+        {
+            get
+            {
+                return parameters;
+            }
+
+            set
+            {
+                parameters = value;
+            }
+        }
+
+        public int PositionCod
+        {
+            get
+            {
+                return positionCod;
+            }
+
+            set
+            {
+                positionCod = value;
+            }
+        }
+
         public EmployeeE(string pName, string pLastName1, string pLastName2, int pHousePhones, int pCelphone, string pAddress,
-                        string pEmployeeCod, PositionE pPosition, string pUserName, string pPassword, bool pSystemAccess,
+                        int pEmployeeCod, PositionE pPosition, string pUserName, string pPassword, bool pParameters, bool pSystemAccess,
                         bool pOrderManagerAccess, bool pManagerMagnamentAccess) : base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
         {
             this.EmployeeCod = pEmployeeCod;
             this.Position = pPosition;
             this.UserName = pUserName;
             this.Password = pPassword;
+            this.parameters = pParameters;
+            this.SystemAccess = pSystemAccess;
+            this.OrderManagerAccess = pOrderManagerAccess;
+            this.ManagerMagnamentAccess = pManagerMagnamentAccess;
+        }
+
+        public EmployeeE(string pName, string pLastName1, string pLastName2, int pHousePhones, int pCelphone, string pAddress,
+                        int pEmployeeCod, int pPositionCod, string pUserName, string pPassword, bool pParameters, bool pSystemAccess,
+                        bool pOrderManagerAccess, bool pManagerMagnamentAccess) : base(pName, pLastName1, pLastName2, pHousePhones, pCelphone, pAddress)
+        {
+            this.EmployeeCod = pEmployeeCod;
+            this.PositionCod = pPositionCod;
+            this.UserName = pUserName;
+            this.Password = pPassword;
+            this.parameters = pParameters;
             this.SystemAccess = pSystemAccess;
             this.OrderManagerAccess = pOrderManagerAccess;
             this.ManagerMagnamentAccess = pManagerMagnamentAccess;

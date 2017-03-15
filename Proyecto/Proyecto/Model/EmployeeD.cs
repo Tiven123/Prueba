@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controller;
+using NpgsqlTypes;
+using Model;
 
 namespace Model
 {
     public class EmployeeD
     {
-        /*private PostgressDataAccess connection;
+        private PostgressDataAccess connection;
 
         private bool error;
 
@@ -36,16 +40,30 @@ namespace Model
         }
 
 
-        public void insertPositions(PositionE oPositionE)
+        public void insertEmployee(EmployeeE oEmployeeE)
         {
             this.errorCleaner();
             Parameters oParameters = new Parameters();
             try
             {
-                string sql = "INSERT INTO employeeposition(positioncod, description, positiontype) VALUES (@positioncod, @description, @positiontype);";
-                oParameters.addParameter("@positioncod", NpgsqlDbType.Integer, oPositionE.PositionCod);
-                oParameters.addParameter("@description", NpgsqlDbType.Varchar, oPositionE.Description);
-                oParameters.addParameter("@positiontype", NpgsqlDbType.Varchar, oPositionE.Type);
+                string sql = "INSERT INTO employee(employeecod, employeeposition, employee_name, employee_last_name1, employee_last_name2, " +
+                    "address, housephone, celphone, employeeuser, employeepassword, systemaccess, parameters, orderadmin, managementmanager) " +
+                    "VALUES (@employeecod, @employeeposition, @employee_name, @employee_last_name1, @employee_last_name2, " +
+                    "@address, @housephone, @celphone, @employeeuser, @employeepassword, @systemaccess, @parameters, @orderadmin, @managementmanager);";
+                oParameters.addParameter("@employeecod", NpgsqlDbType.Integer, oEmployeeE.EmployeeCod);
+                oParameters.addParameter("@employeeposition", NpgsqlDbType.Integer, oEmployeeE.Position.PositionCod);
+                oParameters.addParameter("@employee_name", NpgsqlDbType.Varchar, oEmployeeE.Name);
+                oParameters.addParameter("@employee_last_name1", NpgsqlDbType.Varchar, oEmployeeE.LastName1);
+                oParameters.addParameter("@employee_last_name2", NpgsqlDbType.Varchar, oEmployeeE.LastName2);
+                oParameters.addParameter("@address", NpgsqlDbType.Varchar, oEmployeeE.Address);
+                oParameters.addParameter("@housephone", NpgsqlDbType.Integer, oEmployeeE.HousePhone);
+                oParameters.addParameter("@celphone", NpgsqlDbType.Integer, oEmployeeE.Celphone);
+                oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, oEmployeeE.UserName);
+                oParameters.addParameter("@employeepassword", NpgsqlDbType.Varchar, oEmployeeE.Password);
+                oParameters.addParameter("@systemaccess", NpgsqlDbType.Boolean, oEmployeeE.SystemAccess);
+                oParameters.addParameter("@parameters", NpgsqlDbType.Boolean, oEmployeeE.Parameters);
+                oParameters.addParameter("@orderadmin", NpgsqlDbType.Boolean, oEmployeeE.OrderManagerAccess);
+                oParameters.addParameter("@managementmanager", NpgsqlDbType.Boolean, oEmployeeE.ManagerMagnamentAccess);
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
                 if (this.connection.IsError)
@@ -61,21 +79,29 @@ namespace Model
             }
         }
 
-        public List<PositionE> getPositions()
+        public List<EmployeeE> getEmployees()
         {
             this.errorCleaner();
-            List<PositionE> positions = new List<PositionE>();
-            DataSet dsetPositions;
+            List<EmployeeE> positions = new List<EmployeeE>();
+            DataSet dsetEmployees;
             try
             {
-                string sql = "select p.positioncod as position_cod, p.description as position_desc, p.positiontype as position_type " +
-                         "from employeeposition p;";
-                dsetPositions = this.connection.executeSQLQuery(sql);
+                string sql = "select p.employeecod as employeecod_desc, p.employee_name as employeename_desc, p.employee_last_name1 as employeelastname1_desc " +
+                         "p.employee_last_name2 as employeelastname2_desc, p.employeeposition as employeeposition_desc, p.address as address_desc, p.housephone as housephone_desc " +
+                         "p.celphone as celphone__desc, p.employeeuser as employeeuser_desc, p.employeepassword as employeepassword_desc, p.systemaccess as systemaccess_desc " +
+                         "p.parameters as parameters_desc, p.ordersadmin as ordersadmin_desc, p.managementmanager as managementmanager_desc from employee p;";
+                dsetEmployees = this.connection.executeSQLQuery(sql);
 
-                foreach (DataRow tupla in dsetPositions.Tables[0].Rows)
+                foreach (DataRow tupla in dsetEmployees.Tables[0].Rows)
                 {
-                    PositionE oPositionE = new PositionE(int.Parse(tupla["position_cod"].ToString()), tupla["position_desc"].ToString(), tupla["position_type"].ToString());
-                    positions.Add(oPositionE);
+                    EmployeeE oEmployeeE = new EmployeeE(tupla["employeename_desc"].ToString(), tupla["employeelastname1_desc"].ToString(), 
+                        tupla["employeelastname2_desc"].ToString(), int.Parse(tupla["housephone_desc"].ToString()), 
+                        int.Parse(tupla["celphone__desc"].ToString()), tupla["address_desc"].ToString(), 
+                        int.Parse(tupla["employeecod_desc"].ToString()), int.Parse(tupla["employeeposition_desc"].ToString()), 
+                        tupla["employeeuser_desc"].ToString(), tupla["employeepassword_desc"].ToString(), 
+                        bool.Parse(tupla["parameters_desc"].ToString()), bool.Parse(tupla["systemaccess_desc"].ToString()), 
+                        bool.Parse(tupla["ordersadmin_desc"].ToString()), bool.Parse(tupla["managementmanager_desc"].ToString()));
+                    positions.Add(oEmployeeE);
                 }
             }
             catch (Exception e)
@@ -84,6 +110,6 @@ namespace Model
                 this.errorMsg = e.Message;
             }
             return positions;
-        }*/
+        }
     }
 }

@@ -4,11 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Controller;
-using System.Data;
 using NpgsqlTypes;
 using Npgsql;
 using System.Windows.Forms;
+using Model;
+using Controller;
 
 namespace Model
 {

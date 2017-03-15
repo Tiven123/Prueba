@@ -46,5 +46,29 @@ namespace Proyecto
             Brands oBrands = new Brands();
             oBrands.Show();
         }
+
+        private void btnVehicle_Click(object sender, EventArgs e)
+        {
+            Vehicles oVehicles = new Vehicles();
+            oVehicles.Show();
+        }
+
+        private void btnModel_Click(object sender, EventArgs e)
+        {
+            Models oModels = new Models();
+            oModels.Show();
+        }
+
+        private void btnRepairs_Click(object sender, EventArgs e)
+        {
+            Repairs oRepairs = new Repairs();
+            oRepairs.Show();
+        }
+
+        private void btnReplacement_Click(object sender, EventArgs e)
+        {
+            Replacements oReplacements = new Replacements();
+            oReplacements.Show();
+        }
     }
 }

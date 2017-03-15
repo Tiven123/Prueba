@@ -37,13 +37,13 @@
             this.btnRegisterEmployee = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnModel = new System.Windows.Forms.Button();
             this.btnRepairs = new System.Windows.Forms.Button();
             this.btnReplacement = new System.Windows.Forms.Button();
             this.btnVehicle = new System.Windows.Forms.Button();
             this.btnBrands = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnModel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -150,6 +150,16 @@
             this.tabPage1.Text = "Parámetros";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnModel
+            // 
+            this.btnModel.Location = new System.Drawing.Point(187, 57);
+            this.btnModel.Name = "btnModel";
+            this.btnModel.Size = new System.Drawing.Size(158, 23);
+            this.btnModel.TabIndex = 7;
+            this.btnModel.Text = "Registro Modelos";
+            this.btnModel.UseVisualStyleBackColor = true;
+            this.btnModel.Click += new System.EventHandler(this.btnModel_Click);
+            // 
             // btnRepairs
             // 
             this.btnRepairs.Location = new System.Drawing.Point(8, 102);
@@ -158,6 +168,7 @@
             this.btnRepairs.TabIndex = 6;
             this.btnRepairs.Text = "Registro Catalogo Reparaciones";
             this.btnRepairs.UseVisualStyleBackColor = true;
+            this.btnRepairs.Click += new System.EventHandler(this.btnRepairs_Click);
             // 
             // btnReplacement
             // 
@@ -167,6 +178,7 @@
             this.btnReplacement.TabIndex = 3;
             this.btnReplacement.Text = "Registro Catalogo Repuestos";
             this.btnReplacement.UseVisualStyleBackColor = true;
+            this.btnReplacement.Click += new System.EventHandler(this.btnReplacement_Click);
             // 
             // btnVehicle
             // 
@@ -176,6 +188,7 @@
             this.btnVehicle.TabIndex = 2;
             this.btnVehicle.Text = "Registro de Vehiculos";
             this.btnVehicle.UseVisualStyleBackColor = true;
+            this.btnVehicle.Click += new System.EventHandler(this.btnVehicle_Click);
             // 
             // btnBrands
             // 
@@ -206,15 +219,6 @@
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Gestión Gerencial";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btnModel
-            // 
-            this.btnModel.Location = new System.Drawing.Point(187, 57);
-            this.btnModel.Name = "btnModel";
-            this.btnModel.Size = new System.Drawing.Size(158, 23);
-            this.btnModel.TabIndex = 7;
-            this.btnModel.Text = "Registro Modelos";
-            this.btnModel.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

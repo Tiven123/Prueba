@@ -73,7 +73,7 @@ namespace Model
                     " VALUES (@consecutive, @description, @averagehours, @reparationcost);";
 
                 oParameters.addParameter("@consecutive", NpgsqlDbType.Numeric, oRepairE.Consecutive);
-                oParameters.addParameter("@descriptione", NpgsqlDbType.Varchar, oRepairE.Description);
+                oParameters.addParameter("@description", NpgsqlDbType.Varchar, oRepairE.Description);
                 oParameters.addParameter("@averagehours", NpgsqlDbType.Numeric, oRepairE.Hours);
                 oParameters.addParameter("@reparationcost", NpgsqlDbType.Numeric, oRepairE.Cost);
                
@@ -107,7 +107,7 @@ namespace Model
                     " WHERE consecutive = @consecutive;";
 
                 oParameters.addParameter("@consecutive", NpgsqlDbType.Numeric, oRepairE.Consecutive);
-                oParameters.addParameter("@descriptione", NpgsqlDbType.Varchar, oRepairE.Description);
+                oParameters.addParameter("@description", NpgsqlDbType.Varchar, oRepairE.Description);
                 oParameters.addParameter("@averagehours", NpgsqlDbType.Numeric, oRepairE.Hours);
                 oParameters.addParameter("@reparationcost", NpgsqlDbType.Numeric, oRepairE.Cost);
 

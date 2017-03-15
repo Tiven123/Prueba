@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Proyecto.View
 {
-    public partial class Replacements : Form
+    public partial class Models : Form
     {
-        public Replacements()
+        public Models()
         {
             InitializeComponent();
         }
 
-        private void Replacements_Load(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
 
         }

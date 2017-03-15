@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Proyecto.View
 {
-    public partial class Replacements : Form
+    public partial class Vehicles : Form
     {
-        public Replacements()
+        public Vehicles()
         {
             InitializeComponent();
         }
 
-        private void Replacements_Load(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

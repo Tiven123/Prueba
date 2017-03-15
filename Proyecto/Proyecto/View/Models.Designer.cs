@@ -1,6 +1,6 @@
 ﻿namespace Proyecto.View
 {
-    partial class Replacements
+    partial class Models
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCost = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.cbBrand = new System.Windows.Forms.ComboBox();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,12 +50,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
             // 
-            // txtCode
+            // txtID
             // 
-            this.txtCode.Location = new System.Drawing.Point(16, 30);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(130, 20);
-            this.txtCode.TabIndex = 1;
+            this.txtID.Location = new System.Drawing.Point(16, 30);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(140, 20);
+            this.txtID.TabIndex = 1;
             // 
             // label2
             // 
@@ -72,96 +70,79 @@
             // 
             this.txtDescription.Location = new System.Drawing.Point(16, 74);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(130, 20);
+            this.txtDescription.Size = new System.Drawing.Size(140, 20);
             this.txtDescription.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 102);
+            this.label3.Location = new System.Drawing.Point(13, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Año";
+            this.label3.Text = "Marca";
             // 
-            // txtYear
+            // cbBrand
             // 
-            this.txtYear.Location = new System.Drawing.Point(16, 118);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(130, 20);
-            this.txtYear.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 141);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Costo";
-            // 
-            // txtCost
-            // 
-            this.txtCost.Location = new System.Drawing.Point(16, 158);
-            this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(130, 20);
-            this.txtCost.TabIndex = 7;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(44, 282);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 11;
-            this.btnDelete.Text = "Eliminar";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(44, 241);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "Modificar";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.cbBrand.FormattingEnabled = true;
+            this.cbBrand.Location = new System.Drawing.Point(16, 123);
+            this.cbBrand.Name = "cbBrand";
+            this.cbBrand.Size = new System.Drawing.Size(140, 21);
+            this.cbBrand.TabIndex = 5;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(44, 200);
+            this.btnInsert.Location = new System.Drawing.Point(47, 160);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 9;
+            this.btnInsert.TabIndex = 6;
             this.btnInsert.Text = "Insertar";
             this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(47, 201);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Modificar";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(47, 242);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(153, 13);
+            this.dataGridView1.Location = new System.Drawing.Point(162, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(346, 292);
-            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.Size = new System.Drawing.Size(347, 253);
+            this.dataGridView1.TabIndex = 9;
             // 
-            // Replacements
+            // Models
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 313);
+            this.ClientSize = new System.Drawing.Size(518, 275);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.txtCost);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtYear);
+            this.Controls.Add(this.cbBrand);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtCode);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
-            this.Name = "Replacements";
-            this.Text = "Replacements";
-            this.Load += new System.EventHandler(this.Replacements_Load);
+            this.Name = "Models";
+            this.Text = "Models";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,16 +152,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCost;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ComboBox cbBrand;
         private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

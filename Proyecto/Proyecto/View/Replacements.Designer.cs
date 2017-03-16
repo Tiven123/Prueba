@@ -115,6 +115,7 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -124,6 +125,7 @@
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Modificar";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnInsert
             // 
@@ -133,20 +135,22 @@
             this.btnInsert.TabIndex = 9;
             this.btnInsert.Text = "Insertar";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(153, 13);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(346, 292);
+            this.dataGridView1.Size = new System.Drawing.Size(450, 292);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Replacements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 313);
+            this.ClientSize = new System.Drawing.Size(615, 313);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);

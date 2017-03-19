@@ -197,6 +197,11 @@ namespace Controller
             this.ManagerMagnamentAccess = pManagerMagnamentAccess;
         }
 
+        public EmployeeE(string pUserName)                      
+        {
+            this.UserName = pUserName;
+        }
+
         public override string ToString()
         {
             return base.ToString() +

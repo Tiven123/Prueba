@@ -85,11 +85,23 @@
     <Compile Include="View\Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserRights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserRights.Designer.cs">
+      <DependentUpon>UserRights.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Employees.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Employees.Designer.cs">
       <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainMenu.cs">
       <SubType>Form</SubType>
@@ -104,6 +116,12 @@
     </Compile>
     <Compile Include="View\Models.Designer.cs">
       <DependentUpon>Models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Password.Designer.cs">
+      <DependentUpon>Password.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Positions.cs">
       <SubType>Form</SubType>
@@ -126,9 +144,7 @@
     <Compile Include="View\Vehicles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Vehicles.Designer.cs">
-      <DependentUpon>Vehicles.cs</DependentUpon>
-    </Compile>
+    <Compile Include="View\Vehicles.Designer.cs" />
     <EmbeddedResource Include="View\Brands.resx">
       <DependentUpon>Brands.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -153,6 +172,9 @@
     <EmbeddedResource Include="View\Models.resx">
       <DependentUpon>Models.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Password.resx">
+      <DependentUpon>Password.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Positions.resx">
       <DependentUpon>Positions.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,9 +184,7 @@
     <EmbeddedResource Include="View\Replacements.resx">
       <DependentUpon>Replacements.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Vehicles.resx">
-      <DependentUpon>Vehicles.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="View\Vehicles.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

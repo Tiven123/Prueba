@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.textBoxEmployeeCod = new System.Windows.Forms.TextBox();
@@ -57,22 +56,15 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
+            this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
+            this.buttonClean = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewEmployees
-            // 
-            this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployees.Location = new System.Drawing.Point(293, 12);
-            this.dataGridViewEmployees.Name = "dataGridViewEmployees";
-            this.dataGridViewEmployees.Size = new System.Drawing.Size(536, 482);
-            this.dataGridViewEmployees.TabIndex = 0;
-            this.dataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellContentClick);
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(26, 455);
+            this.btnAddEmployee.Location = new System.Drawing.Point(16, 434);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(75, 23);
             this.btnAddEmployee.TabIndex = 1;
@@ -94,6 +86,7 @@
             this.textBoxEmployeeCod.Name = "textBoxEmployeeCod";
             this.textBoxEmployeeCod.Size = new System.Drawing.Size(150, 20);
             this.textBoxEmployeeCod.TabIndex = 3;
+            this.textBoxEmployeeCod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEmployeeCod_KeyPress);
             // 
             // textBoxLastName1
             // 
@@ -272,6 +265,7 @@
             this.textBoxHousePhone.Name = "textBoxHousePhone";
             this.textBoxHousePhone.Size = new System.Drawing.Size(150, 20);
             this.textBoxHousePhone.TabIndex = 20;
+            this.textBoxHousePhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHousePhone_KeyPress);
             // 
             // textBoxCelPhone
             // 
@@ -279,6 +273,7 @@
             this.textBoxCelPhone.Name = "textBoxCelPhone";
             this.textBoxCelPhone.Size = new System.Drawing.Size(150, 20);
             this.textBoxCelPhone.TabIndex = 21;
+            this.textBoxCelPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCelPhone_KeyPress);
             // 
             // textBoxUserName
             // 
@@ -297,7 +292,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(107, 455);
+            this.buttonEditar.Location = new System.Drawing.Point(107, 434);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 24;
@@ -307,7 +302,7 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(188, 455);
+            this.buttonEliminar.Location = new System.Drawing.Point(198, 434);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
             this.buttonEliminar.TabIndex = 25;
@@ -315,11 +310,36 @@
             this.buttonEliminar.UseVisualStyleBackColor = true;
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
+            // dataGridViewEmployees
+            // 
+            this.dataGridViewEmployees.AllowUserToAddRows = false;
+            this.dataGridViewEmployees.AllowUserToDeleteRows = false;
+            this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmployees.Location = new System.Drawing.Point(280, 13);
+            this.dataGridViewEmployees.Name = "dataGridViewEmployees";
+            this.dataGridViewEmployees.ReadOnly = true;
+            this.dataGridViewEmployees.Size = new System.Drawing.Size(549, 481);
+            this.dataGridViewEmployees.TabIndex = 26;
+            this.dataGridViewEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellClick);
+            this.dataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellContentClick);
+            // 
+            // buttonClean
+            // 
+            this.buttonClean.Location = new System.Drawing.Point(107, 471);
+            this.buttonClean.Name = "buttonClean";
+            this.buttonClean.Size = new System.Drawing.Size(75, 23);
+            this.buttonClean.TabIndex = 27;
+            this.buttonClean.Text = "Limpiar";
+            this.buttonClean.UseVisualStyleBackColor = true;
+            this.buttonClean.Click += new System.EventHandler(this.buttonClean_Click);
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 506);
+            this.Controls.Add(this.buttonClean);
+            this.Controls.Add(this.dataGridViewEmployees);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.textBoxPassword);
@@ -344,21 +364,18 @@
             this.Controls.Add(this.textBoxEmployeeCod);
             this.Controls.Add(this.comboBoxPosition);
             this.Controls.Add(this.btnAddEmployee);
-            this.Controls.Add(this.dataGridViewEmployees);
             this.KeyPreview = true;
             this.Name = "Employees";
             this.Text = "Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewEmployees;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.ComboBox comboBoxPosition;
         private System.Windows.Forms.TextBox textBoxEmployeeCod;
@@ -387,5 +404,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.DataGridView dataGridViewEmployees;
+        private System.Windows.Forms.Button buttonClean;
     }
 }

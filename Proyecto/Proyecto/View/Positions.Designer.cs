@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonCleanForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,13 +51,15 @@
             this.dataGridViewPositions.Name = "dataGridViewPositions";
             this.dataGridViewPositions.ReadOnly = true;
             this.dataGridViewPositions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridViewPositions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPositions.Size = new System.Drawing.Size(440, 270);
             this.dataGridViewPositions.TabIndex = 0;
+            this.dataGridViewPositions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellClick);
             this.dataGridViewPositions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellContentClick);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(58, 194);
+            this.btnAdd.Location = new System.Drawing.Point(15, 194);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -70,6 +73,7 @@
             this.textBoxPositionCod.Name = "textBoxPositionCod";
             this.textBoxPositionCod.Size = new System.Drawing.Size(158, 20);
             this.textBoxPositionCod.TabIndex = 2;
+            this.textBoxPositionCod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPositionCod_KeyPress);
             // 
             // textBoxDescription
             // 
@@ -114,7 +118,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(58, 252);
+            this.buttonDelete.Location = new System.Drawing.Point(15, 223);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 8;
@@ -124,7 +128,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(58, 223);
+            this.buttonEdit.Location = new System.Drawing.Point(104, 194);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 9;
@@ -132,11 +136,22 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
+            // buttonCleanForm
+            // 
+            this.buttonCleanForm.Location = new System.Drawing.Point(104, 223);
+            this.buttonCleanForm.Name = "buttonCleanForm";
+            this.buttonCleanForm.Size = new System.Drawing.Size(75, 23);
+            this.buttonCleanForm.TabIndex = 10;
+            this.buttonCleanForm.Text = "Limpiar";
+            this.buttonCleanForm.UseVisualStyleBackColor = true;
+            this.buttonCleanForm.Click += new System.EventHandler(this.buttonCleanForm_Click);
+            // 
             // Positions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 294);
+            this.Controls.Add(this.buttonCleanForm);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.label3);
@@ -167,5 +182,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonCleanForm;
     }
 }

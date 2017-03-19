@@ -175,7 +175,6 @@ namespace Model
 
                 oParameters.addParameter("@pemployeecod", NpgsqlDbType.Integer, pEmployeeCod);
                 this.connection.executeSQL(sql, oParameters.getParameter());
-
                 if (this.connection.IsError)
                 {
                     error = true;
@@ -191,6 +190,38 @@ namespace Model
                 this.errorMsg = e.Message;
                 return false;
             }
+        }
+
+        public Boolean isUser(string pUserName, string pPassword)
+        {
+            bool vIsUser = false;
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            DataSet dsetEmployees;
+            try
+            {
+                string sql = "SELECT employeecod FROM employee where employeeuser = @employeeuser and employeepassword = @employeepassword;";
+                oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, pUserName);
+                oParameters.addParameter("@employeepassword", NpgsqlDbType.Varchar, pPassword);
+                dsetEmployees = this.connection.executeSQLQuery(sql, "employee", oParameters.getParameter());
+
+                foreach (DataRow tupla in dsetEmployees.Tables[0].Rows)
+                {
+                    EmployeeE oEmployeeE = new EmployeeE(tupla["employeecod"].ToString());
+                    vIsUser = true;
+                }
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                }
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+            }
+            return vIsUser;
         }
     }
 }

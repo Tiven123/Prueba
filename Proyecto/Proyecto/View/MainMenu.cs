@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Proyecto.view;
 using Proyecto.View;
 
 namespace Proyecto
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
         }
@@ -70,5 +71,6 @@ namespace Proyecto
             Replacements oReplacements = new Replacements();
             oReplacements.Show();
         }
+
     }
 }

@@ -16,15 +16,18 @@ namespace Proyecto.View
 
         public void chargeDataGrid()
         {
-            /*this.dataGridViewPositions.Columns[0].Name = "Cod";
-            this.dataGridViewPositions.Columns[1].Name = "Descripción";
-            this.dataGridViewPositions.Columns[2].Name = "Tipo";*/
-
             PositionD oPositionD = new PositionD();
             List<PositionE> Positions = oPositionD.getPositions();
 
             this.dataGridViewPositions.DataSource = Positions;
 
+        }
+
+        public void cleanForm()
+        {
+            this.textBoxDescription.Text = "";
+            this.textBoxPositionCod.Text = "";
+            this.textBoxPositionType.Text = "";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -50,22 +53,27 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Posición insertada exitosamente");
                     chargeDataGrid();
+                    cleanForm();
                 }
             }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            PositionD oPositionD = new PositionD();
-            int id = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
-            if (oPositionD.deletePosition(id))
+            if (MessageBox.Show("Esta seguro de eliminar este registro ?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("Posicion eliminada exitosamente");
-                chargeDataGrid();
-            }
-            else
-            {
-                MessageBox.Show("Error al elimimar posición: " + oPositionD.ErrorMsg);
+                PositionD oPositionD = new PositionD();
+                int id = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
+                if (oPositionD.deletePosition(id))
+                {
+                    MessageBox.Show("Posicion eliminada exitosamente");
+                    chargeDataGrid();
+                    cleanForm();
+                }
+                else
+                {
+                    MessageBox.Show("Error al elimimar posición: " + oPositionD.ErrorMsg);
+                }
             }
         }
 
@@ -73,13 +81,13 @@ namespace Proyecto.View
         {
             PositionD oPositionD = new PositionD();
             int pPositionCod = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
-            //this.textBoxPositionCod
-            PositionE oPositionE = new PositionE(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text);    
+            PositionE oPositionE = new PositionE(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text);
             if (oPositionD.updatePosition(oPositionE, pPositionCod))
             {
                 MessageBox.Show("Posición modificada correctamente");
                 chargeDataGrid();
-                
+                cleanForm();
+
             }
             else
             {
@@ -89,9 +97,34 @@ namespace Proyecto.View
 
         private void dataGridViewPositions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void dataGridViewPositions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             this.textBoxPositionCod.Text = dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString();
             this.textBoxDescription.Text = dataGridViewPositions.CurrentRow.Cells["Description"].Value.ToString();
             this.textBoxPositionType.Text = dataGridViewPositions.CurrentRow.Cells["Type"].Value.ToString();
+        }
+
+        private void buttonCleanForm_Click(object sender, EventArgs e)
+        {
+            cleanForm();
+        }
+
+        private void textBoxPositionCod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

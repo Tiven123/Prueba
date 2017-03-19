@@ -7,6 +7,7 @@ using Controller;
 using System.Data;
 using NpgsqlTypes;
 using Npgsql;
+using Model;
 
 namespace Model
 {

@@ -150,5 +150,32 @@ namespace Model
                 return false;
             }
         }
+
+        //it is funtional but it is not used
+        /*public PositionE getPosition(int pPositionCod)
+        {
+            this.errorCleaner();
+            PositionE oPositionE = null;
+            Parameters oParameter = new Parameters();
+            DataSet dsetPositions;
+            try
+            {
+                string sql = "select positioncod, description, positiontype " +
+                         "from employeeposition where positionCod = @positioncod;";
+                oParameter.addParameter("@employeeuser", NpgsqlDbType.Integer, pPositionCod);
+                dsetPositions = this.connection.executeSQLQuery(sql, "employeeposition", oParameter.getParameter());
+
+                foreach (DataRow tupla in dsetPositions.Tables[0].Rows)
+                {
+                    oPositionE = new PositionE(int.Parse(tupla["position_cod"].ToString()), tupla["position_desc"].ToString(), tupla["position_type"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+            }
+            return oPositionE;
+        }*/
     }
 }

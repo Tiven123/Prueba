@@ -1,6 +1,6 @@
 ﻿namespace Proyecto
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -32,10 +32,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnRegisterPosition = new System.Windows.Forms.Button();
             this.btnRegisterEmployee = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonChangePassword = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnModel = new System.Windows.Forms.Button();
             this.btnRepairs = new System.Windows.Forms.Button();
@@ -74,10 +73,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.btnRegisterPosition);
             this.tabPage3.Controls.Add(this.btnRegisterEmployee);
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.buttonChangePassword);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -96,18 +94,9 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(185, 64);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Derechos de Usuario";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // btnRegisterPosition
             // 
-            this.btnRegisterPosition.Location = new System.Drawing.Point(18, 64);
+            this.btnRegisterPosition.Location = new System.Drawing.Point(95, 67);
             this.btnRegisterPosition.Name = "btnRegisterPosition";
             this.btnRegisterPosition.Size = new System.Drawing.Size(150, 23);
             this.btnRegisterPosition.TabIndex = 2;
@@ -125,14 +114,14 @@
             this.btnRegisterEmployee.UseVisualStyleBackColor = true;
             this.btnRegisterEmployee.Click += new System.EventHandler(this.btnRegisterEmployee_Click);
             // 
-            // button1
+            // buttonChangePassword
             // 
-            this.button1.Location = new System.Drawing.Point(18, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Cambio Contraseña";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.Location = new System.Drawing.Point(18, 17);
+            this.buttonChangePassword.Name = "buttonChangePassword";
+            this.buttonChangePassword.Size = new System.Drawing.Size(150, 23);
+            this.buttonChangePassword.TabIndex = 0;
+            this.buttonChangePassword.Text = "Cambio Contraseña";
+            this.buttonChangePassword.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -220,13 +209,13 @@
             this.tabPage4.Text = "Gestión Gerencial";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 212);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "MainMenu";
             this.Text = "Menu Principal";
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -243,10 +232,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnRegisterPosition;
         private System.Windows.Forms.Button btnRegisterEmployee;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonChangePassword;
         private System.Windows.Forms.Button btnRepairs;
         private System.Windows.Forms.Button btnReplacement;
         private System.Windows.Forms.Button btnVehicle;

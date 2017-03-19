@@ -72,5 +72,9 @@ namespace Proyecto
             oReplacements.Show();
         }
 
+        private void buttonChangePassword_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -122,6 +122,7 @@
             this.buttonChangePassword.TabIndex = 0;
             this.buttonChangePassword.Text = "Cambio Contraseña";
             this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
             // 
             // tabPage1
             // 

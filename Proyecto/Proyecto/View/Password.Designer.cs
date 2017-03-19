@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxpassword1 = new System.Windows.Forms.TextBox();
-            this.textBoxpassword2 = new System.Windows.Forms.TextBox();
+            this.textBoxNewPassword1 = new System.Windows.Forms.TextBox();
+            this.textBoxNewPassword2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxCurrentPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBoxpassword1
+            // textBoxNewPassword1
             // 
-            this.textBoxpassword1.Location = new System.Drawing.Point(23, 32);
-            this.textBoxpassword1.Name = "textBoxpassword1";
-            this.textBoxpassword1.Size = new System.Drawing.Size(181, 20);
-            this.textBoxpassword1.TabIndex = 0;
+            this.textBoxNewPassword1.Location = new System.Drawing.Point(18, 76);
+            this.textBoxNewPassword1.Name = "textBoxNewPassword1";
+            this.textBoxNewPassword1.Size = new System.Drawing.Size(186, 20);
+            this.textBoxNewPassword1.TabIndex = 0;
             // 
-            // textBoxpassword2
+            // textBoxNewPassword2
             // 
-            this.textBoxpassword2.Location = new System.Drawing.Point(23, 77);
-            this.textBoxpassword2.Name = "textBoxpassword2";
-            this.textBoxpassword2.Size = new System.Drawing.Size(181, 20);
-            this.textBoxpassword2.TabIndex = 1;
+            this.textBoxNewPassword2.Location = new System.Drawing.Point(18, 121);
+            this.textBoxNewPassword2.Name = "textBoxNewPassword2";
+            this.textBoxNewPassword2.Size = new System.Drawing.Size(186, 20);
+            this.textBoxNewPassword2.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 13);
+            this.label1.Location = new System.Drawing.Point(18, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 13);
             this.label1.TabIndex = 2;
@@ -64,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 59);
+            this.label2.Location = new System.Drawing.Point(18, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(48, 119);
+            this.btnChange.Location = new System.Drawing.Point(21, 161);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(75, 23);
             this.btnChange.TabIndex = 4;
@@ -82,41 +82,45 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(156, 119);
+            this.btnCancel.Location = new System.Drawing.Point(129, 161);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // dataGridViewEmployees
+            // label3
             // 
-            this.dataGridViewEmployees.AllowUserToAddRows = false;
-            this.dataGridViewEmployees.AllowUserToDeleteRows = false;
-            this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployees.Location = new System.Drawing.Point(263, 13);
-            this.dataGridViewEmployees.Name = "dataGridViewEmployees";
-            this.dataGridViewEmployees.ReadOnly = true;
-            this.dataGridViewEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEmployees.Size = new System.Drawing.Size(1047, 482);
-            this.dataGridViewEmployees.TabIndex = 6;
-            this.dataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellContentClick);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Digite su Contraseña Actual:";
+            // 
+            // textBoxCurrentPassword
+            // 
+            this.textBoxCurrentPassword.Location = new System.Drawing.Point(18, 30);
+            this.textBoxCurrentPassword.Name = "textBoxCurrentPassword";
+            this.textBoxCurrentPassword.Size = new System.Drawing.Size(186, 20);
+            this.textBoxCurrentPassword.TabIndex = 8;
             // 
             // Password
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1317, 503);
-            this.Controls.Add(this.dataGridViewEmployees);
+            this.ClientSize = new System.Drawing.Size(224, 200);
+            this.Controls.Add(this.textBoxCurrentPassword);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxpassword2);
-            this.Controls.Add(this.textBoxpassword1);
+            this.Controls.Add(this.textBoxNewPassword2);
+            this.Controls.Add(this.textBoxNewPassword1);
             this.Name = "Password";
             this.Text = "Password";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,12 +128,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxpassword1;
-        private System.Windows.Forms.TextBox textBoxpassword2;
+        private System.Windows.Forms.TextBox textBoxNewPassword1;
+        private System.Windows.Forms.TextBox textBoxNewPassword2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridView dataGridViewEmployees;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxCurrentPassword;
     }
 }

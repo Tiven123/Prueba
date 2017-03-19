@@ -43,16 +43,16 @@ namespace Model
         {
             this.cleanError();
             List<ModelE> models = new List<ModelE>();
-            DataSet dataBD;
+            DataSet datasett;
             try
             {
-                string sql = "SELECT m.modelcod AS codigo, m.brand AS marca, m.modeldescription AS description " +
+                string sql = "SELECT m.modelcod AS codigo, m.brand AS marca, m.modeldescription AS descripcion " +
                     "FROM model m;";
 
-                dataBD = this.connection.executeSQLQuery(sql);
-                foreach (DataRow tuple in dataBD.Tables[0].Rows)
+                datasett = this.connection.executeSQLQuery(sql);
+                foreach (DataRow tuple in datasett.Tables[0].Rows)
                 {
-                    ModelE oModelE = new ModelE(int.Parse(tuple["codigo"].ToString()),int.Parse(tuple["marca"].ToString()), tuple["description"].ToString());
+                    ModelE oModelE = new ModelE(int.Parse(tuple["codigo"].ToString()), int.Parse(tuple["marca"].ToString()), tuple["descripcion"].ToString());
                     models.Add(oModelE);
                 }
             }
@@ -63,21 +63,18 @@ namespace Model
             }
             return models;
         }
-
-        public Boolean insert(RepairE oRepairE)
+        public Boolean insert(ModelE oModelE)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
             try
             {
-                string sql = "INSERT INTO model (modelcod, brand, modeldescription)" +
+                string sql = "INSERT INTO model(modelcod, brand, modeldescription)" +
                     " VALUES (@modelcod, @brand, @modeldescription);";
 
-                oParameters.addParameter("@modelcod", NpgsqlDbType.Numeric, oRepairE.Consecutive);
-                oParameters.addParameter("@brand", NpgsqlDbType.Numeric, oRepairE.Description);
-                oParameters.addParameter("@modeldescription", NpgsqlDbType.Numeric, oRepairE.Hours);
-
-
+                oParameters.addParameter("@modelcod", NpgsqlDbType.Numeric, oModelE.Code);
+                oParameters.addParameter("@brand", NpgsqlDbType.Numeric, oModelE.Brand);
+                oParameters.addParameter("@modeldescription", NpgsqlDbType.Varchar, oModelE.Description);
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
 
@@ -98,19 +95,18 @@ namespace Model
 
         }
 
-        /*public Boolean update(RepairE oRepairE)
+        public Boolean updateClient(ModelE oModelE)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
             try
             {
-                string sql = "UPDATE reparationscatalogue SET description = @description, averagehours = @averagehours, reparationcost = @reparationcost" +
-                    " WHERE consecutive = @consecutive;";
+                string sql = "UPDATE model SET brand = @brand, modeldescription = @modeldescription" +
+                    " WHERE modelcod = @modelcod;";
 
-                oParameters.addParameter("@consecutive", NpgsqlDbType.Numeric, oRepairE.Consecutive);
-                oParameters.addParameter("@description", NpgsqlDbType.Varchar, oRepairE.Description);
-                oParameters.addParameter("@averagehours", NpgsqlDbType.Numeric, oRepairE.Hours);
-                oParameters.addParameter("@reparationcost", NpgsqlDbType.Numeric, oRepairE.Cost);
+                oParameters.addParameter("@modelcod", NpgsqlDbType.Numeric, oModelE.Code);
+                oParameters.addParameter("@brand", NpgsqlDbType.Numeric, oModelE.Brand);
+                oParameters.addParameter("@modeldescription", NpgsqlDbType.Varchar, oModelE.Description);
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
 
@@ -129,15 +125,15 @@ namespace Model
                 return false;
             }
         }
-        public Boolean delete(string code)
+        public Boolean deleteClient(string modelcod)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
             try
             {
-                string sql = "DELETE FROM reparationscatalogue WHERE consecutive = @consecutive;";
+                string sql = "DELETE FROM model WHERE modelcod = @modelcod;";
 
-                oParameters.addParameter("@consecutive", NpgsqlDbType.Numeric, code);
+                oParameters.addParameter("@modelcod", NpgsqlDbType.Numeric, modelcod);
                 this.connection.executeSQL(sql, oParameters.getParameter());
 
                 if (this.connection.IsError)
@@ -155,6 +151,6 @@ namespace Model
                 this.errorMsg = e.Message;
                 return false;
             }
-        }*/
+        }
     }
 }

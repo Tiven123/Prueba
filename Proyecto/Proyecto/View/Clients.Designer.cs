@@ -31,6 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HousePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celphone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +59,7 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClean = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +70,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cedula:";
+            this.label1.Text = "Cédula:";
             // 
             // txtID
             // 
@@ -72,11 +82,84 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cedula,
+            this.Name,
+            this.LastName1,
+            this.LastName2,
+            this.OfficePhone,
+            this.HousePhone,
+            this.Celphone,
+            this.Fax,
+            this.Address});
             this.dataGridView1.Location = new System.Drawing.Point(202, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(947, 411);
+            this.dataGridView1.Size = new System.Drawing.Size(939, 411);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Cedula
+            // 
+            this.Cedula.DataPropertyName = "Cedula";
+            this.Cedula.HeaderText = "Cédula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Nombre";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // LastName1
+            // 
+            this.LastName1.DataPropertyName = "LastName1";
+            this.LastName1.HeaderText = "Primer Apellido";
+            this.LastName1.Name = "LastName1";
+            this.LastName1.ReadOnly = true;
+            // 
+            // LastName2
+            // 
+            this.LastName2.DataPropertyName = "LastName2";
+            this.LastName2.HeaderText = "Segundo Apellido";
+            this.LastName2.Name = "LastName2";
+            this.LastName2.ReadOnly = true;
+            // 
+            // OfficePhone
+            // 
+            this.OfficePhone.DataPropertyName = "OfficePhone";
+            this.OfficePhone.HeaderText = "Teléfono Officina";
+            this.OfficePhone.Name = "OfficePhone";
+            this.OfficePhone.ReadOnly = true;
+            // 
+            // HousePhone
+            // 
+            this.HousePhone.DataPropertyName = "HousePhone";
+            this.HousePhone.HeaderText = "Telefono Casa";
+            this.HousePhone.Name = "HousePhone";
+            this.HousePhone.ReadOnly = true;
+            // 
+            // Celphone
+            // 
+            this.Celphone.DataPropertyName = "Celphone";
+            this.Celphone.HeaderText = "Célular";
+            this.Celphone.Name = "Celphone";
+            this.Celphone.ReadOnly = true;
+            // 
+            // Fax
+            // 
+            this.Fax.DataPropertyName = "Fax";
+            this.Fax.HeaderText = "Fax";
+            this.Fax.Name = "Fax";
+            this.Fax.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Dirección";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
             // 
             // label2
             // 
@@ -112,7 +195,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Telefono Oficina";
+            this.label5.Text = "Teléfono Oficina";
             // 
             // label6
             // 
@@ -121,7 +204,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Telefono Casa:";
+            this.label6.Text = "Teléfono Casa:";
             // 
             // txtName
             // 
@@ -204,7 +287,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Direccion:";
+            this.label9.Text = "Dirección:";
             // 
             // btnInsert
             // 
@@ -228,7 +311,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(57, 400);
+            this.btnDelete.Location = new System.Drawing.Point(12, 400);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 21;
@@ -236,11 +319,22 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnClean
+            // 
+            this.btnClean.Location = new System.Drawing.Point(104, 400);
+            this.btnClean.Name = "btnClean";
+            this.btnClean.Size = new System.Drawing.Size(75, 23);
+            this.btnClean.TabIndex = 22;
+            this.btnClean.Text = "Limpiar";
+            this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
+            // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 428);
+            this.Controls.Add(this.btnClean);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
@@ -263,8 +357,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
-            this.Name = "Clients";
-            this.Text = "Clients";
+            //this.Name = "Clients";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -296,5 +391,15 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnClean;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OfficePhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HousePhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Celphone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }

@@ -58,6 +58,20 @@
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
             this.buttonClean = new System.Windows.Forms.Button();
+            this.codigoEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoPosicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parametros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordenes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gerencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +130,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Codigo de empleado";
+            this.label1.Text = "Código de empleado";
             // 
             // label2
             // 
@@ -166,16 +180,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 184);
+            this.label7.Location = new System.Drawing.Point(12, 184);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Telefono de casa";
+            this.label7.Text = "Teléfono de casa";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 215);
+            this.label8.Location = new System.Drawing.Point(12, 212);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 14;
@@ -184,7 +198,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 241);
+            this.label9.Location = new System.Drawing.Point(12, 241);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 15;
@@ -193,7 +207,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(19, 272);
+            this.label10.Location = new System.Drawing.Point(12, 269);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 16;
@@ -205,7 +219,7 @@
             this.groupBox1.Controls.Add(this.checkBoxParameters);
             this.groupBox1.Controls.Add(this.checkBoxOrderManager);
             this.groupBox1.Controls.Add(this.checkBoxSystemAccess);
-            this.groupBox1.Location = new System.Drawing.Point(20, 313);
+            this.groupBox1.Location = new System.Drawing.Point(16, 313);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(253, 115);
             this.groupBox1.TabIndex = 18;
@@ -219,7 +233,7 @@
             this.checkBoxMagnamentManager.Name = "checkBoxMagnamentManager";
             this.checkBoxMagnamentManager.Size = new System.Drawing.Size(108, 17);
             this.checkBoxMagnamentManager.TabIndex = 3;
-            this.checkBoxMagnamentManager.Text = "Gestion gerencial";
+            this.checkBoxMagnamentManager.Text = "Gestión gerencial";
             this.checkBoxMagnamentManager.UseVisualStyleBackColor = true;
             // 
             // checkBoxParameters
@@ -315,10 +329,25 @@
             this.dataGridViewEmployees.AllowUserToAddRows = false;
             this.dataGridViewEmployees.AllowUserToDeleteRows = false;
             this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployees.Location = new System.Drawing.Point(280, 13);
+            this.dataGridViewEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoEmpleado,
+            this.usuario,
+            this.contraseña,
+            this.nombreEmpleado,
+            this.apellido1,
+            this.apellido2,
+            this.telefono,
+            this.celular,
+            this.direccion,
+            this.codigoPosicion,
+            this.parametros,
+            this.sistema,
+            this.ordenes,
+            this.gerencial});
+            this.dataGridViewEmployees.Location = new System.Drawing.Point(280, 12);
             this.dataGridViewEmployees.Name = "dataGridViewEmployees";
             this.dataGridViewEmployees.ReadOnly = true;
-            this.dataGridViewEmployees.Size = new System.Drawing.Size(549, 481);
+            this.dataGridViewEmployees.Size = new System.Drawing.Size(1082, 481);
             this.dataGridViewEmployees.TabIndex = 26;
             this.dataGridViewEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellClick);
             this.dataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellContentClick);
@@ -333,11 +362,109 @@
             this.buttonClean.UseVisualStyleBackColor = true;
             this.buttonClean.Click += new System.EventHandler(this.buttonClean_Click);
             // 
+            // codigoEmpleado
+            // 
+            this.codigoEmpleado.DataPropertyName = "EmployeeCod";
+            this.codigoEmpleado.HeaderText = "Código de empleado";
+            this.codigoEmpleado.Name = "codigoEmpleado";
+            this.codigoEmpleado.ReadOnly = true;
+            // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "UserName";
+            this.usuario.HeaderText = "Nombre de Usuario";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            // 
+            // contraseña
+            // 
+            this.contraseña.DataPropertyName = "Password";
+            this.contraseña.HeaderText = "Contraseña";
+            this.contraseña.Name = "contraseña";
+            this.contraseña.ReadOnly = true;
+            // 
+            // nombreEmpleado
+            // 
+            this.nombreEmpleado.DataPropertyName = "Name";
+            this.nombreEmpleado.HeaderText = "Nombre";
+            this.nombreEmpleado.Name = "nombreEmpleado";
+            this.nombreEmpleado.ReadOnly = true;
+            // 
+            // apellido1
+            // 
+            this.apellido1.DataPropertyName = "LastName1";
+            this.apellido1.HeaderText = "Primer Apellido";
+            this.apellido1.Name = "apellido1";
+            this.apellido1.ReadOnly = true;
+            // 
+            // apellido2
+            // 
+            this.apellido2.DataPropertyName = "LastName2";
+            this.apellido2.HeaderText = "Segundo Apellido";
+            this.apellido2.Name = "apellido2";
+            this.apellido2.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "HousePhone";
+            this.telefono.HeaderText = "Teléfono";
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
+            // 
+            // celular
+            // 
+            this.celular.DataPropertyName = "Celphone";
+            this.celular.HeaderText = "Celular";
+            this.celular.Name = "celular";
+            this.celular.ReadOnly = true;
+            // 
+            // direccion
+            // 
+            this.direccion.DataPropertyName = "Address";
+            this.direccion.HeaderText = "Dirección";
+            this.direccion.Name = "direccion";
+            this.direccion.ReadOnly = true;
+            // 
+            // codigoPosicion
+            // 
+            this.codigoPosicion.DataPropertyName = "PositionCod";
+            this.codigoPosicion.HeaderText = "Código de posición";
+            this.codigoPosicion.Name = "codigoPosicion";
+            this.codigoPosicion.ReadOnly = true;
+            // 
+            // parametros
+            // 
+            this.parametros.DataPropertyName = "Parameters";
+            this.parametros.HeaderText = "Acceso a parametros";
+            this.parametros.Name = "parametros";
+            this.parametros.ReadOnly = true;
+            // 
+            // sistema
+            // 
+            this.sistema.DataPropertyName = "SystemAccess";
+            this.sistema.HeaderText = "Acceso al sistema";
+            this.sistema.Name = "sistema";
+            this.sistema.ReadOnly = true;
+            // 
+            // ordenes
+            // 
+            this.ordenes.DataPropertyName = "OrderManagerAccess";
+            this.ordenes.HeaderText = "Acceso manejo de ordenes";
+            this.ordenes.Name = "ordenes";
+            this.ordenes.ReadOnly = true;
+            // 
+            // gerencial
+            // 
+            this.gerencial.DataPropertyName = "ManagerMagnamentAccess";
+            this.gerencial.HeaderText = "Acceso Gerencial";
+            this.gerencial.Name = "gerencial";
+            this.gerencial.ReadOnly = true;
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 506);
+            this.ClientSize = new System.Drawing.Size(1374, 506);
             this.Controls.Add(this.buttonClean);
             this.Controls.Add(this.dataGridViewEmployees);
             this.Controls.Add(this.buttonEliminar);
@@ -366,7 +493,8 @@
             this.Controls.Add(this.btnAddEmployee);
             this.KeyPreview = true;
             this.Name = "Employees";
-            this.Text = "Employee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Empleados";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
@@ -406,5 +534,19 @@
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.DataGridView dataGridViewEmployees;
         private System.Windows.Forms.Button buttonClean;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contraseña;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn celular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoPosicion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parametros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sistema;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordenes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gerencial;
     }
 }

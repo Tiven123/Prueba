@@ -204,9 +204,7 @@ namespace Controller
 
         public override string ToString()
         {
-            return base.ToString() +
-                "Codigo de empleado: " + this.employeeCod + "\n" +
-                "Posición: " + this.position.ToString() + "\n";
+            return this.Name;
         }
     }
 }

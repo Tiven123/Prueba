@@ -97,6 +97,7 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Cliente insertado correctamente");
                     chargeDataGrid();
+                    clean();
                 }
             }
             else
@@ -109,15 +110,23 @@ namespace Proyecto.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string id = dataGridView1.CurrentRow.Cells["Cedula"].Value.ToString();
-            if (oClienteD.deleteClient(id))
+            if (MessageBox.Show("Desea eliminar el Cliente", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Cliente eliminado exitosamente");
-                chargeDataGrid();
+                string id = dataGridView1.CurrentRow.Cells["Cedula"].Value.ToString();
+                if (oClienteD.deleteClient(id))
+                {
+                    MessageBox.Show("Cliente eliminado exitosamente");
+                    chargeDataGrid();
+                    clean();
+                }
+                else
+                {
+                    MessageBox.Show("Error al elimimar cliente: " + oClienteD.ErrorMsg);
+                }
             }
             else
             {
-                MessageBox.Show("Error al elimimar cliente: " + oClienteD.ErrorMsg);
+                MessageBox.Show("Eliminacion cancelada", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -144,12 +153,31 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Cliente modificado correctamente");
                     chargeDataGrid();
+                    clean();
                 }
             }
             else
             {
                 MessageBox.Show("Error al modificar cliente: " + oClienteD.ErrorMsg);
             }
+        }
+
+        public void clean()
+        {
+            txtID.Text = "";
+            txtName.Text = "";
+            txtLastName1.Text = "";
+            txtLastName2.Text = "";
+            txtOfficePhone.Text = "";
+            txtHuosePhone.Text = "";
+            txtCelphone.Text = "";
+            txtFax.Text = "";
+            txtAddress.Text = "";
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            clean();
         }
     }
 }

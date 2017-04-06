@@ -65,10 +65,7 @@ namespace Controller
 
         public override string ToString()
         {
-            return base.ToString()+
-                "Codigo: " + this.Code + "\n" +
-                "Marca: " + this.Brand + "\n" +
-                "Descripcion: " + this.Description;
+            return this.description;
         }
     }
 }

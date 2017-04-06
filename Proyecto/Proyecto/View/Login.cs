@@ -15,6 +15,21 @@ namespace Proyecto.view
 {
     public partial class Login : Form
     {
+        bool loginOk = false;
+
+        public bool LoginOk
+        {
+            get
+            {
+                return loginOk;
+            }
+
+            set
+            {
+                loginOk = value;
+            }
+        }
+
         public Login()
         {
             InitializeComponent();
@@ -37,9 +52,8 @@ namespace Proyecto.view
             else if (oEmployeeD.isUser(this.textBoxUserName.Text, this.textBoxPassword.Text))
             {
                 MessageBox.Show("Bienvenido");
-                //this.Close();
-                MainMenu oMainMenu = new MainMenu();
-                oMainMenu.ShowDialog();
+                this.LoginOk = true;
+                this.Close();
             }
             else if (oEmployeeD.Error)
             {

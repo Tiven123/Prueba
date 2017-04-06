@@ -63,6 +63,8 @@ namespace Model
             }
             return models;
         }
+
+
         public Boolean insert(ModelE oModelE)
         {
             this.cleanError();
@@ -95,7 +97,7 @@ namespace Model
 
         }
 
-        public Boolean updateClient(ModelE oModelE)
+        public Boolean update(ModelE oModelE)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();
@@ -125,7 +127,7 @@ namespace Model
                 return false;
             }
         }
-        public Boolean deleteClient(string modelcod)
+        public Boolean delete(string modelcod)
         {
             this.cleanError();
             Parameters oParameters = new Parameters();

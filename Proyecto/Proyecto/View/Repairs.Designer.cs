@@ -32,6 +32,10 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Consecutive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
@@ -40,12 +44,13 @@
             this.txtHour = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCost = new System.Windows.Forms.TextBox();
+            this.btnClean = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(32, 270);
+            this.btnDelete.Location = new System.Drawing.Point(12, 212);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 11;
@@ -55,7 +60,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(32, 231);
+            this.btnUpdate.Location = new System.Drawing.Point(93, 183);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 10;
@@ -65,7 +70,7 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(32, 193);
+            this.btnInsert.Location = new System.Drawing.Point(12, 183);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 9;
@@ -76,17 +81,50 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(148, 12);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Consecutive,
+            this.Description,
+            this.Hours,
+            this.Cost});
+            this.dataGridView1.Location = new System.Drawing.Point(174, 11);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(424, 281);
+            this.dataGridView1.Size = new System.Drawing.Size(446, 223);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Consecutive
+            // 
+            this.Consecutive.DataPropertyName = "Consecutive";
+            this.Consecutive.HeaderText = "Código";
+            this.Consecutive.Name = "Consecutive";
+            this.Consecutive.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Descripción";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "Hours";
+            this.Hours.HeaderText = "Horas Aproximadas";
+            this.Hours.Name = "Hours";
+            this.Hours.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.DataPropertyName = "Cost";
+            this.Cost.HeaderText = "Costo";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(12, 74);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(130, 20);
+            this.txtDescription.Size = new System.Drawing.Size(156, 20);
             this.txtDescription.TabIndex = 16;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
@@ -97,14 +135,14 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Descripcion";
+            this.label2.Text = "Descripción";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtCode
             // 
             this.txtCode.Location = new System.Drawing.Point(12, 30);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(130, 20);
+            this.txtCode.Size = new System.Drawing.Size(156, 20);
             this.txtCode.TabIndex = 14;
             this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
@@ -115,7 +153,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Código";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
@@ -131,7 +169,7 @@
             // 
             this.txtHour.Location = new System.Drawing.Point(12, 118);
             this.txtHour.Name = "txtHour";
-            this.txtHour.Size = new System.Drawing.Size(130, 20);
+            this.txtHour.Size = new System.Drawing.Size(156, 20);
             this.txtHour.TabIndex = 18;
             // 
             // label4
@@ -147,14 +185,25 @@
             // 
             this.txtCost.Location = new System.Drawing.Point(12, 157);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(130, 20);
+            this.txtCost.Size = new System.Drawing.Size(156, 20);
             this.txtCost.TabIndex = 20;
+            // 
+            // btnClean
+            // 
+            this.btnClean.Location = new System.Drawing.Point(93, 212);
+            this.btnClean.Name = "btnClean";
+            this.btnClean.Size = new System.Drawing.Size(75, 23);
+            this.btnClean.TabIndex = 21;
+            this.btnClean.Text = "Limpiar";
+            this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // Repairs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 304);
+            this.ClientSize = new System.Drawing.Size(632, 246);
+            this.Controls.Add(this.btnClean);
             this.Controls.Add(this.txtCost);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtHour);
@@ -168,7 +217,8 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
             this.Name = "Repairs";
-            this.Text = "Repairs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Reparaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,5 +239,10 @@
         private System.Windows.Forms.TextBox txtHour;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCost;
+        private System.Windows.Forms.Button btnClean;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Consecutive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
     }
 }

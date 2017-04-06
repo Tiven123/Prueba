@@ -52,9 +52,7 @@ namespace Controller
 
         public override string ToString()
         {
-            return base.ToString() +
-                "Codigo: " + this.Code + "\n" +
-                "Descripcion: " + this.Description + "\n";
+            return this.description;
         }
     
     }

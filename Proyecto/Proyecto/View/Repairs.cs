@@ -98,6 +98,8 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Reparacion insertada correctamente");
                     chargeDataGrid();
+                    clean();
+
                 }
                 else
                 {
@@ -112,15 +114,24 @@ namespace Proyecto.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string code = dataGridView1.CurrentRow.Cells["Consecutive"].Value.ToString();
-            if (oRepairD.delete(code))
+            if (MessageBox.Show("Desea eliminar la reparación", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Reparacion eliminada exitosamente");
-                chargeDataGrid();
+                string code = dataGridView1.CurrentRow.Cells["Consecutive"].Value.ToString();
+                if (oRepairD.delete(code))
+                {
+                    MessageBox.Show("Reparacion eliminada exitosamente");
+                    chargeDataGrid();
+                    clean();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al elimimar reparacion: " + oRepairD.ErrorMsg);
+                }
             }
             else
             {
-                MessageBox.Show("Error al elimimar reparacion: " + oRepairD.ErrorMsg);
+                MessageBox.Show("Eliminacion cancelada", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -134,6 +145,7 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Reparacion modificada correctamente");
                     chargeDataGrid();
+                    clean();
                 }
             }
             else
@@ -148,6 +160,18 @@ namespace Proyecto.View
             txtDescription.Text = dataGridView1.CurrentRow.Cells["Description"].Value.ToString();
             txtHour.Text = dataGridView1.CurrentRow.Cells["Hours"].Value.ToString();
             txtCost.Text = dataGridView1.CurrentRow.Cells["Cost"].Value.ToString();
+        }
+        public void clean()
+        {
+            txtCode.Text = "";
+            txtDescription.Text = "";
+            txtHour.Text = "";
+            txtCost.Text = "";
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            clean();
         }
     }
 }

@@ -66,10 +66,7 @@ namespace Controller
 
         public override string ToString()
         {
-            return base.ToString() +
-                "Cedula: " + this.cedula + "\n" +
-                "Telefono de oficina: " + this.officePhone + "\n" +
-                "Fax: " + this.fax + "\n";
+            return base.Name + " " +base.LastName1 +" "+base.LastName2;
         }
     }
 }

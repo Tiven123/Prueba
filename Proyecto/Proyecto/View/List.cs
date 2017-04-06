@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proyecto.View
 {
-    public partial class Derechos_de_usuario : Form
+    public partial class Replacement : Form
     {
-        public Derechos_de_usuario()
+        public Replacement()
         {
             InitializeComponent();
         }

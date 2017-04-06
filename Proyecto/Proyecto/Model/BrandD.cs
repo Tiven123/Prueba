@@ -61,6 +61,7 @@ namespace Model
             }
             return brands;
         }
+
         public Boolean insertBrand(BrandE oBrandE)
         {
             this.cleanError();

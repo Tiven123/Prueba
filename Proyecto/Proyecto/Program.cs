@@ -15,11 +15,13 @@ namespace Proyecto
         [STAThread]
         static void Main()
         {
-            /*Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());*/
             Login oLogin = new Login();
             oLogin.ShowDialog();
+            if (oLogin.LoginOk)
+            {
+                MainMenu oMainMenu = new MainMenu();
+                oMainMenu.ShowDialog();
+            }
         }
     }
 }

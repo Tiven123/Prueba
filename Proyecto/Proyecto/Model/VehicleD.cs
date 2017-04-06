@@ -47,14 +47,14 @@ namespace Model
             try
             {
                 string sql = "SELECT v.vehicleid AS codigo, v.model AS modelo, v.client AS cliente, v.vehicleyear AS anno, "+
-                    "v.enginenumber AS motor, v.chassisnumber AS chassis, v.fuel AS combustible, v.vehicletype AS tipo, v.capacity AS capacidad" +
+                    "v.enginenumber AS motor, v.chassisnumber AS chassis, v.fuel AS combustible, v.vehicletype AS tipo, v.capacity AS capacidad " +
                     "FROM vehicle v;";
 
                 dataBD = this.connection.executeSQLQuery(sql);
                 foreach (DataRow tuple in dataBD.Tables[0].Rows)
                 {
                     VehicleE oVehicleE = new VehicleE (tuple["codigo"].ToString(), int.Parse(tuple["modelo"].ToString()), tuple["cliente"].ToString(),
-                        int.Parse(tuple["anno"].ToString()), tuple["motor"].ToString(), tuple["chassis"].ToString(), char.Parse(tuple["combustible"].ToString()),
+                        int.Parse(tuple["anno"].ToString()), tuple["motor"].ToString(), tuple["chassis"].ToString(), tuple["combustible"].ToString(),
                         tuple["tipo"].ToString(), int.Parse(tuple["capacidad"].ToString()));
                     vehicles.Add(oVehicleE);
                 }
@@ -81,9 +81,9 @@ namespace Model
                 oParameters.addParameter("@vehicleyear", NpgsqlDbType.Numeric, oVehicleE.Year);
                 oParameters.addParameter("@enginenumber", NpgsqlDbType.Varchar, oVehicleE.Engine);
                 oParameters.addParameter("@chassisnumber", NpgsqlDbType.Varchar, oVehicleE.Chassis);
-                oParameters.addParameter("@fuel", NpgsqlDbType.Char, oVehicleE.Fuel);
+                oParameters.addParameter("@fuel", NpgsqlDbType.Varchar, oVehicleE.Fuel);
                 oParameters.addParameter("@vehicletype", NpgsqlDbType.Varchar, oVehicleE.Type);
-                oParameters.addParameter("@capacityt", NpgsqlDbType.Numeric, oVehicleE.Capacity);
+                oParameters.addParameter("@capacity", NpgsqlDbType.Numeric, oVehicleE.Capacity);
 
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
@@ -121,9 +121,9 @@ namespace Model
                 oParameters.addParameter("@vehicleyear", NpgsqlDbType.Numeric, oVehicleE.Year);
                 oParameters.addParameter("@enginenumber", NpgsqlDbType.Varchar, oVehicleE.Engine);
                 oParameters.addParameter("@chassisnumber", NpgsqlDbType.Varchar, oVehicleE.Chassis);
-                oParameters.addParameter("@fuel", NpgsqlDbType.Char, oVehicleE.Fuel);
+                oParameters.addParameter("@fuel", NpgsqlDbType.Varchar, oVehicleE.Fuel);
                 oParameters.addParameter("@vehicletype", NpgsqlDbType.Varchar, oVehicleE.Type);
-                oParameters.addParameter("@capacityt", NpgsqlDbType.Numeric, oVehicleE.Capacity);
+                oParameters.addParameter("@capacity", NpgsqlDbType.Numeric, oVehicleE.Capacity);
 
                 this.connection.executeSQL(sql, oParameters.getParameter());
 

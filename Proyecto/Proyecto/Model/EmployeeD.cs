@@ -89,7 +89,7 @@ namespace Model
                 string sql = "select p.employeecod as employeecod_desc, p.employee_name as employeename_desc, p.employee_last_name1 as employeelastname1_desc, " +
                          "p.employee_last_name2 as employeelastname2_desc, p.employeeposition as employeeposition_desc, p.address as address_desc, p.housephone as housephone_desc, " +
                          "p.celphone as celphone_desc, p.employeeuser as employeeuser_desc, p.employeepassword as employeepassword_desc, p.system_access as systemaccess_desc, " +
-                         "p.parameters_access as parameters_desc, p.ordersadmin_access as ordersadmin_desc, p.management_manager as managementmanager_desc from employee p;";
+                         "p.parameters_access as parameters_desc, p.ordersadmin_access as ordersadmin_desc, p.management_manager as managementmanager_desc from employee p order by p.employeecod asc;";
                 dsetEmployees = this.connection.executeSQLQuery(sql);
 
                 foreach (DataRow tupla in dsetEmployees.Tables[0].Rows)
@@ -126,7 +126,7 @@ namespace Model
             try
             {
                 string sql = "UPDATE employee SET employeecod = @employeecod, employeeposition = @employeeposition, address = @address, " +
-                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = @employeepassword, " +
+                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = employeepassword, " +
                     "employee_name = @employee_name, employee_last_name1 = @employee_last_name1, employee_last_name2 = @employee_last_name2, " +
                     "parameters_access = @parameters_access, system_access = @system_access, ordersadmin_access = @ordersadmin_access, " +
                     "management_manager = @management_manager WHERE employeecod = @pemployeecod;";
@@ -162,6 +162,31 @@ namespace Model
                 error = true;
                 this.errorMsg = e.Message;
                 return false;
+            }
+        }
+
+        public void updateEmployeePassword(string pUserName, string pCurrentPassword, string pNewPassword)
+        {
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            try
+            {
+                string sql = "UPDATE employee SET employeepassword = newpassword WHERE employeeuser = @employeeuser and employeepassword = @oldpassword);";
+                oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, pUserName);
+                oParameters.addParameter("@oldpassword", NpgsqlDbType.Varchar, pCurrentPassword);
+                oParameters.addParameter("@newpassword", NpgsqlDbType.Varchar, pNewPassword);
+
+                this.connection.executeSQL(sql, oParameters.getParameter());
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                }
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
             }
         }
 

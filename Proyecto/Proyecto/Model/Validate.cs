@@ -33,5 +33,11 @@ namespace Model
                 return true;
             }
         }
+        public Boolean textNumber(string texts)
+        {
+
+            return !number(texts) && !text(texts);
+
+        }
     }
 }

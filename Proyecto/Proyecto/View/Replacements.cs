@@ -89,6 +89,7 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Repuesto insertado correctamente");
                     chargeDataGrid();
+                    clean();
                 }
                 else
                 {
@@ -103,15 +104,23 @@ namespace Proyecto.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string code = dataGridView1.CurrentRow.Cells["Consecutive"].Value.ToString();
-            if (oReplacementD.delete(code))
+            if (MessageBox.Show("Desea eliminar el repuesto", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Repuesto eliminado exitosamente");
-                chargeDataGrid();
+                string code = dataGridView1.CurrentRow.Cells["Consecutive"].Value.ToString();
+                if (oReplacementD.delete(code))
+                {
+                    MessageBox.Show("Repuesto eliminado exitosamente");
+                    chargeDataGrid();
+                    clean();
+                }
+                else
+                {
+                    MessageBox.Show("Error al elimimar repuesto: " + oReplacementD.ErrorMsg);
+                }
             }
             else
             {
-                MessageBox.Show("Error al elimimar repuesto: " + oReplacementD.ErrorMsg);
+                MessageBox.Show("Eliminacion cancelada", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -125,12 +134,25 @@ namespace Proyecto.View
                 {
                     MessageBox.Show("Repuesto modificado correctamente");
                     chargeDataGrid();
+                    clean();
                 }
             }
             else
             {
                 MessageBox.Show("Error al modificar Repuesto: " + oReplacementD.ErrorMsg);
             }
+        }
+        public void clean()
+        {
+            txtCode.Text = "";
+            txtDescription.Text = "";
+            txtYear.Text = "";
+            txtCost.Text = "";
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            clean();
         }
     }
 }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridViewPositions = new System.Windows.Forms.DataGridView();
+            this.PositionCod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.textBoxPositionCod = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -47,19 +50,44 @@
             this.dataGridViewPositions.AllowUserToAddRows = false;
             this.dataGridViewPositions.AllowUserToDeleteRows = false;
             this.dataGridViewPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PositionCod,
+            this.Description,
+            this.Type});
             this.dataGridViewPositions.Location = new System.Drawing.Point(185, 12);
             this.dataGridViewPositions.Name = "dataGridViewPositions";
             this.dataGridViewPositions.ReadOnly = true;
             this.dataGridViewPositions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridViewPositions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPositions.Size = new System.Drawing.Size(440, 270);
+            this.dataGridViewPositions.Size = new System.Drawing.Size(343, 234);
             this.dataGridViewPositions.TabIndex = 0;
             this.dataGridViewPositions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellClick);
             this.dataGridViewPositions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellContentClick);
             // 
+            // PositionCod
+            // 
+            this.PositionCod.DataPropertyName = "PositionCod";
+            this.PositionCod.HeaderText = "Código";
+            this.PositionCod.Name = "PositionCod";
+            this.PositionCod.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Descripción";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Tipo";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(15, 194);
+            this.btnAdd.Location = new System.Drawing.Point(15, 183);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -69,7 +97,7 @@
             // 
             // textBoxPositionCod
             // 
-            this.textBoxPositionCod.Location = new System.Drawing.Point(21, 42);
+            this.textBoxPositionCod.Location = new System.Drawing.Point(15, 32);
             this.textBoxPositionCod.Name = "textBoxPositionCod";
             this.textBoxPositionCod.Size = new System.Drawing.Size(158, 20);
             this.textBoxPositionCod.TabIndex = 2;
@@ -77,14 +105,14 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(21, 97);
+            this.textBoxDescription.Location = new System.Drawing.Point(15, 87);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(158, 20);
             this.textBoxDescription.TabIndex = 3;
             // 
             // textBoxPositionType
             // 
-            this.textBoxPositionType.Location = new System.Drawing.Point(21, 156);
+            this.textBoxPositionType.Location = new System.Drawing.Point(15, 146);
             this.textBoxPositionType.Name = "textBoxPositionType";
             this.textBoxPositionType.Size = new System.Drawing.Size(158, 20);
             this.textBoxPositionType.TabIndex = 4;
@@ -92,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 24);
+            this.label1.Location = new System.Drawing.Point(15, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 5;
@@ -101,7 +129,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 81);
+            this.label2.Location = new System.Drawing.Point(15, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 6;
@@ -110,7 +138,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 140);
+            this.label3.Location = new System.Drawing.Point(15, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 7;
@@ -128,7 +156,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(104, 194);
+            this.buttonEdit.Location = new System.Drawing.Point(104, 183);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 9;
@@ -150,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 294);
+            this.ClientSize = new System.Drawing.Size(539, 258);
             this.Controls.Add(this.buttonCleanForm);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
@@ -163,7 +191,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridViewPositions);
             this.Name = "Positions";
-            this.Text = "Editar Posicion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Editar Posición";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,5 +212,8 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonCleanForm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionCod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

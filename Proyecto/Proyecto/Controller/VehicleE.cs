@@ -14,7 +14,7 @@ namespace Controller
         int year;
         string engine;
         string chassis;
-        char fuel;
+        string fuel;
         string type;
         int capacity;
 
@@ -96,7 +96,7 @@ namespace Controller
             }
         }
 
-        public char Fuel
+        public string Fuel
         {
             get
             {
@@ -135,17 +135,17 @@ namespace Controller
             }
         }
 
-        public VehicleE(string id, int model, string client, int year, string engine, string chassis, char fuel, string type, int capacity)
+        public VehicleE(string id, int model, string client, int year, string engine, string chassis, string fuel, string type, int capacity)
         {
-            this.Id = id;
-            this.Model = model;
-            this.Client = client;
-            this.Year = year;
-            this.Engine = engine;
-            this.Chassis = chassis;
-            this.Fuel = fuel;
-            this.Type = type;
-            this.Capacity = capacity;
+            this.id = id;
+            this.model = model;
+            this.client = client;
+            this.year = year;
+            this.engine = engine;
+            this.chassis = chassis;
+            this.fuel = fuel;
+            this.type = type;
+            this.capacity = capacity;
         }
 
         public VehicleE()
@@ -155,16 +155,7 @@ namespace Controller
 
         public override string ToString()
         {
-            return base.ToString() +
-                "Codigo: " + this.id + "\n" +
-                "Modelo: " + this.model + "\n" +
-                "Cliente: " + this.client + "\n" +
-                "Anno: " + this.year + "\n" +
-                "Motor: " + this.engine + "\n" +
-                "Chasis" + this.chassis + "\n" +
-                "Comblustible: " + this.fuel + "\n" +
-                "Tipo: " + this.type + "\n" +
-                "Capacidad: " + this.capacity;
+            return this.Id.ToString();
         }
     }
 }

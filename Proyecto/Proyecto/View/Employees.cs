@@ -68,6 +68,7 @@ namespace Proyecto.View
             }
         }
 
+
         public void btnAddEmployee_Click(object sender, EventArgs e)
         {
             Validate oValidate = new Validate();
@@ -99,10 +100,8 @@ namespace Proyecto.View
                                 "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else /*if (oValidate.text(this.textBoxAddress.Text) && oValidate.text(lastName1) && oValidate.text(lastName2) &&
-                        oValidate.number(officePhone) && oValidate.number(housePhone) && oValidate.number(celphone) &&
-                        oValidate.number(fax) && oValidate.text(address)) */
-                {
+            else 
+            {
                 EmployeeD oEmployeeD = new EmployeeD();
                 PositionE oPositionE = (PositionE)this.comboBoxPosition.SelectedItem;
                 EmployeeE oEmployeeE = new EmployeeE(this.textBoxName.Text,
@@ -139,7 +138,7 @@ namespace Proyecto.View
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             EmployeeD oEmployeeD = new EmployeeD();
-            int pEmployeeCod = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["EmployeeCod"].Value.ToString());
+            int pEmployeeCod = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString());
             PositionE oPositionE = (PositionE)this.comboBoxPosition.SelectedItem;
             EmployeeE oEmployeeE = new EmployeeE(this.textBoxName.Text,
                                                      this.textBoxLastName1.Text,
@@ -173,7 +172,7 @@ namespace Proyecto.View
             if (MessageBox.Show("Esta seguro de eliminar este registro ?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 EmployeeD oEmployeeD = new EmployeeD();
-                int id = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["EmployeeCod"].Value.ToString());
+                int id = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString());
                 if (oEmployeeD.deleteEmployee(id))
                 {
                     MessageBox.Show("Empleado eliminado exitosamente");
@@ -196,33 +195,33 @@ namespace Proyecto.View
         private void dataGridViewEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.cleanForm();
-            this.textBoxAddress.Text = dataGridViewEmployees.CurrentRow.Cells["Address"].Value.ToString();
-            this.textBoxCelPhone.Text = dataGridViewEmployees.CurrentRow.Cells["Celphone"].Value.ToString();
-            this.textBoxEmployeeCod.Text = dataGridViewEmployees.CurrentRow.Cells["EmployeeCod"].Value.ToString();
-            this.textBoxHousePhone.Text = dataGridViewEmployees.CurrentRow.Cells["HousePhone"].Value.ToString();
-            this.textBoxLastName1.Text = dataGridViewEmployees.CurrentRow.Cells["LastName1"].Value.ToString();
-            this.textBoxLastName2.Text = dataGridViewEmployees.CurrentRow.Cells["LastName2"].Value.ToString();
-            this.textBoxName.Text = dataGridViewEmployees.CurrentRow.Cells["Name"].Value.ToString();
-            this.textBoxUserName.Text = dataGridViewEmployees.CurrentRow.Cells["UserName"].Value.ToString();
-            this.textBoxPassword.Text = dataGridViewEmployees.CurrentRow.Cells["Password"].Value.ToString();
-            if (this.dataGridViewEmployees.CurrentRow.Cells["SystemAccess"].Value.ToString() == "T")
+            this.textBoxAddress.Text = dataGridViewEmployees.CurrentRow.Cells["direccion"].Value.ToString();
+            this.textBoxCelPhone.Text = dataGridViewEmployees.CurrentRow.Cells["celular"].Value.ToString();
+            this.textBoxEmployeeCod.Text = dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString();
+            this.textBoxHousePhone.Text = dataGridViewEmployees.CurrentRow.Cells["telefono"].Value.ToString();
+            this.textBoxLastName1.Text = dataGridViewEmployees.CurrentRow.Cells["apellido1"].Value.ToString();
+            this.textBoxLastName2.Text = dataGridViewEmployees.CurrentRow.Cells["apellido2"].Value.ToString();
+            this.textBoxName.Text = dataGridViewEmployees.CurrentRow.Cells["nombreEmpleado"].Value.ToString();
+            this.textBoxUserName.Text = dataGridViewEmployees.CurrentRow.Cells["usuario"].Value.ToString();
+            this.textBoxPassword.Text = dataGridViewEmployees.CurrentRow.Cells["contraseña"].Value.ToString();
+            if (this.dataGridViewEmployees.CurrentRow.Cells["sistema"].Value.ToString() == "T")
             {
                 this.checkBoxSystemAccess.Checked = true;
             }
-            if (this.dataGridViewEmployees.CurrentRow.Cells["Parameters"].Value.ToString() == "T")
+            if (this.dataGridViewEmployees.CurrentRow.Cells["parametros"].Value.ToString() == "T")
             {
                 this.checkBoxParameters.Checked = true;
             }
-            if (this.dataGridViewEmployees.CurrentRow.Cells["OrderManagerAccess"].Value.ToString() == "T")
+            if (this.dataGridViewEmployees.CurrentRow.Cells["ordenes"].Value.ToString() == "T")
             {
                 this.checkBoxOrderManager.Checked = true;
             }
-            if (this.dataGridViewEmployees.CurrentRow.Cells["ManagerMagnamentAccess"].Value.ToString() == "T")
+            if (this.dataGridViewEmployees.CurrentRow.Cells["gerencial"].Value.ToString() == "T")
             {
                 this.checkBoxMagnamentManager.Checked = true;
             }
    
-            this.comboBoxPosition.SelectedIndex = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["PositionCod"].Value.ToString()) - 1; 
+            this.comboBoxPosition.SelectedIndex = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoPosicion"].Value.ToString()) - 1; 
         }
 
         private void buttonClean_Click(object sender, EventArgs e)

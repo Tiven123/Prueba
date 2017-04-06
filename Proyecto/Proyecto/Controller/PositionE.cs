@@ -59,9 +59,7 @@ namespace Controller
         }
         public override string ToString()
         {
-            return "Posición: " + this.positionCod + "\n" +
-                "Descripción: " + this.description + "\n" +
-                "Tipo: " + this.type + "\n";
+            return this.Description;
         }
     }
 }

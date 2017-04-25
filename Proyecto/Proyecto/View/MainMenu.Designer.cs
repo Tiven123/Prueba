@@ -81,12 +81,39 @@
             this.btnBrands = new System.Windows.Forms.Button();
             this.btnClientRegister = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpOrderF = new System.Windows.Forms.DateTimePicker();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbOrderReport = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbEmployeeReport = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtpFechaInicial = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControlPages.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlPages
@@ -626,6 +653,12 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox4);
+            this.tabPage4.Controls.Add(this.groupBox6);
+            this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.Controls.Add(this.groupBox3);
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Controls.Add(this.label7);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -633,6 +666,212 @@
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Gestión Gerencial";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.dtpOrderF);
+            this.groupBox4.Location = new System.Drawing.Point(51, 211);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(221, 115);
+            this.groupBox4.TabIndex = 10;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ordenes Finalizadas";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(27, 77);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Generar Reporte";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Fecha";
+            // 
+            // dtpOrderF
+            // 
+            this.dtpOrderF.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpOrderF.Location = new System.Drawing.Point(78, 44);
+            this.dtpOrderF.Name = "dtpOrderF";
+            this.dtpOrderF.Size = new System.Drawing.Size(103, 20);
+            this.dtpOrderF.TabIndex = 5;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button6);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.cbOrderReport);
+            this.groupBox6.Location = new System.Drawing.Point(322, 110);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(221, 115);
+            this.groupBox6.TabIndex = 9;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Orden Finalizada";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(51, 71);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(121, 23);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Generar Reporte";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 32);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Consecutivo";
+            // 
+            // cbOrderReport
+            // 
+            this.cbOrderReport.FormattingEnabled = true;
+            this.cbOrderReport.Location = new System.Drawing.Point(78, 28);
+            this.cbOrderReport.Name = "cbOrderReport";
+            this.cbOrderReport.Size = new System.Drawing.Size(121, 21);
+            this.cbOrderReport.TabIndex = 3;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Location = new System.Drawing.Point(308, 309);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(213, 78);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Estadistica de repuestos más vendidos";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(47, 32);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Generar Reporte";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.cbEmployeeReport);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.dtpFechaFinal);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.dtpFechaInicial);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Location = new System.Drawing.Point(659, 110);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(215, 158);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Reparaciones Atendidas por Empleado";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 81);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 13);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Empleado";
+            // 
+            // cbEmployeeReport
+            // 
+            this.cbEmployeeReport.FormattingEnabled = true;
+            this.cbEmployeeReport.Location = new System.Drawing.Point(73, 78);
+            this.cbEmployeeReport.Name = "cbEmployeeReport";
+            this.cbEmployeeReport.Size = new System.Drawing.Size(121, 21);
+            this.cbEmployeeReport.TabIndex = 11;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 55);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Fecha Final";
+            // 
+            // dtpFechaFinal
+            // 
+            this.dtpFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFinal.Location = new System.Drawing.Point(73, 52);
+            this.dtpFechaFinal.Name = "dtpFechaFinal";
+            this.dtpFechaFinal.Size = new System.Drawing.Size(103, 20);
+            this.dtpFechaFinal.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Fecha Inicio";
+            // 
+            // dtpFechaInicial
+            // 
+            this.dtpFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicial.Location = new System.Drawing.Point(73, 25);
+            this.dtpFechaInicial.Name = "dtpFechaInicial";
+            this.dtpFechaInicial.Size = new System.Drawing.Size(103, 20);
+            this.dtpFechaInicial.TabIndex = 7;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(39, 117);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(121, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Generar Reporte";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button7);
+            this.groupBox2.Location = new System.Drawing.Point(16, 101);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 69);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ordenes Pendientes";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(35, 22);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(121, 23);
+            this.button7.TabIndex = 3;
+            this.button7.Text = "Generar Reporte";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(345, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(198, 39);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "INFORMES";
             // 
             // MainMenu
             // 
@@ -651,6 +890,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -710,6 +959,27 @@
         private System.Windows.Forms.RadioButton radioButtonExit;
         private System.Windows.Forms.RadioButton radioButtonEntry;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbOrderReport;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbEmployeeReport;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicial;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtpOrderF;
     }
 }
 

@@ -127,7 +127,7 @@ namespace Model
             try
             {
                 string sql = "UPDATE employee SET employeecod = @employeecod, employeeposition = @employeeposition, address = @address, " +
-                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = @employeepassword, " +
+                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = employeepassword, " +
                     "employee_name = @employee_name, employee_last_name1 = @employee_last_name1, employee_last_name2 = @employee_last_name2, " +
                     "parameters_access = @parameters_access, system_access = @system_access, ordersadmin_access = @ordersadmin_access, " +
                     "management_manager = @management_manager WHERE employeecod = @pemployeecod;";

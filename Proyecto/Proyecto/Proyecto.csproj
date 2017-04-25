@@ -108,8 +108,70 @@
     <Compile Include="Model\RepairOrderD.cs" />
     <Compile Include="Model\ReplacementD.cs" />
     <Compile Include="Model\ReplacementOrderD.cs" />
+    <Compile Include="Model\ReportD.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Model\VehicleD.cs" />
+    <Compile Include="Reports\dsetWorkOrderBilling.cs">
+      <DependentUpon>dsetWorkOrderBilling.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\dsetWorkOrderBilling.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsetWorkOrderBilling.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\dtsOrderNotFinish.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsOrderNotFinish.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\dtsOrdesPerDay.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsOrdesPerDay.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\dtsRepairPerEmployee.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsRepairPerEmployee.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\dtsReplacement.cs">
+      <DependentUpon>dtsReplacement.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\dtsReplacement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsReplacement.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptOrderNotFinish.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderNotFinish.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptOrderPerDay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderPerDay.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptRepairPerEmployee.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRepairPerEmployee.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptReplacement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReplacement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptWordOrderBilling.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptWordOrderBilling.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Brands.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,12 +240,38 @@
     <Compile Include="View\Replacements.Designer.cs">
       <DependentUpon>Replacements.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Vehicles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Vehicles.Designer.cs">
       <DependentUpon>Vehicles.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\rptOrderNotFinish.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderNotFinish.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptOrderPerDay.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderPerDay.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptRepairPerEmployee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRepairPerEmployee.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptReplacement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReplacement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptWordOrderBilling.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWordOrderBilling.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Brands.resx">
       <DependentUpon>Brands.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +314,9 @@
     <EmbeddedResource Include="View\Replacements.resx">
       <DependentUpon>Replacements.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Vehicles.resx">
       <DependentUpon>Vehicles.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +329,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reports\dsetWorkOrderBilling.xsc">
+      <DependentUpon>dsetWorkOrderBilling.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dsetWorkOrderBilling.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsetWorkOrderBilling.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dsetWorkOrderBilling.xss">
+      <DependentUpon>dsetWorkOrderBilling.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsOrderNotFinish.xsc">
+      <DependentUpon>dtsOrderNotFinish.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsOrderNotFinish.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsOrderNotFinish.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dtsOrderNotFinish.xss">
+      <DependentUpon>dtsOrderNotFinish.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsOrdesPerDay.xsc">
+      <DependentUpon>dtsOrdesPerDay.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsOrdesPerDay.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsOrdesPerDay.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dtsOrdesPerDay.xss">
+      <DependentUpon>dtsOrdesPerDay.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsRepairPerEmployee.xsc">
+      <DependentUpon>dtsRepairPerEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsRepairPerEmployee.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsRepairPerEmployee.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dtsRepairPerEmployee.xss">
+      <DependentUpon>dtsRepairPerEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsReplacement.xsc">
+      <DependentUpon>dtsReplacement.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dtsReplacement.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsReplacement.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dtsReplacement.xss">
+      <DependentUpon>dtsReplacement.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -260,9 +406,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

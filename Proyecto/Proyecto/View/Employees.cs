@@ -50,13 +50,9 @@ namespace Proyecto.View
             this.textBoxPassword.Text = "";
             this.textBoxUserName.Text = "";
             this.checkBoxMagnamentManager.Checked = false;
-            this.managerMagnamentAccess = 'F';
             this.checkBoxOrderManager.Checked = false;
-            this.orderManagerAccess = 'F';
             this.checkBoxParameters.Checked = false;
-            this.parametersAccess = 'F';
             this.checkBoxSystemAccess.Checked = false;
-            this.systemAccess = 'F';
             this.comboBoxPosition.SelectedIndex = 0;
         }
 
@@ -195,7 +191,6 @@ namespace Proyecto.View
                 else
                 {
                     MessageBox.Show(asnwer);
-                    cleanForm();
                     this.chargeDataGrid();
                 }
             }

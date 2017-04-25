@@ -12,6 +12,7 @@ using Model;
 using Proyecto.Logic;
 using Proyecto.view;
 using Proyecto.View;
+using View;
 
 namespace Proyecto
 {
@@ -28,7 +29,7 @@ namespace Proyecto
             userRights();
         }
 
-        public void userRights()  
+        public void userRights()
         {
             if (oEmployeeE.OrderManagerAccess == 'F')
             {
@@ -158,14 +159,20 @@ namespace Proyecto
         public void chargeCombo()
         {
             this.comboBoxEmployee.Items.Clear();
+            this.cbEmployeeReport.Items.Clear();
+
             EmployeeD oEmployeeD = new EmployeeD();
+
             List<EmployeeE> employees = oEmployeeD.getEmployees();
+
             foreach (EmployeeE oEmployeeE in employees)
             {
+                this.cbEmployeeReport.Items.Add(oEmployeeE);
                 this.comboBoxEmployee.Items.Add(oEmployeeE);
             }
+            this.cbEmployeeReport.SelectedIndex = 0;
             this.comboBoxEmployee.SelectedIndex = 0;
-
+            /*--------------------------------------------*/
 
             this.comboBoxVehicle.Items.Clear();
             VehicleD oVehicleD = new VehicleD();
@@ -175,7 +182,20 @@ namespace Proyecto
                 this.comboBoxVehicle.Items.Add(oVehicleE);
             }
             this.comboBoxVehicle.SelectedIndex = 0;
-
+            /*--------------------------------------------*/
+            this.cbOrderReport.Items.Clear();
+            OrderD oOrder = new OrderD();
+            List<OrderE> orders = oOrder.get();
+            foreach (OrderE oOrderE in orders)
+            {
+                if (oOrderE.State=="Facturado")
+                {
+                    this.cbOrderReport.Items.Add(oOrderE);
+                }
+                
+            }
+            this.cbOrderReport.SelectedIndex = 0;
+            /*--------------------------------------------*/
             this.comboBox1.Items.Clear();
             this.comboBox1.Items.Add("En progreso");
             this.comboBox1.Items.Add("Finalizado");
@@ -379,6 +399,51 @@ namespace Proyecto
         private void radioButtonBilling_Click(object sender, EventArgs e)
         {
             enableAndDisableOptions();
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            OrderE orden = (OrderE)cbOrderReport.SelectedItem;
+            Reportes reporte = new Reportes(3);
+            reporte.ShowDialog();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OrderE orden = (OrderE)cbOrderReport.SelectedItem;
+            Reportes reporte = new Reportes(orden.Consecutive,1);
+            reporte.ShowDialog(); 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String fechaString = this.dtpOrderF.Value.ToShortDateString();
+            DateTime entrada = Convert.ToDateTime(fechaString);
+            Reportes reporte = new Reportes(2 , entrada);
+            reporte.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            String fechaString = this.dtpFechaInicial.Value.ToShortDateString();
+            DateTime inicial = Convert.ToDateTime(fechaString);
+            fechaString = this.dtpFechaFinal.Value.ToShortDateString();
+            DateTime final = Convert.ToDateTime(fechaString);
+            Controller.EmployeeE employee = (Controller.EmployeeE)cbEmployeeReport.SelectedItem; ;
+
+            Reportes reporte = new Reportes(4, inicial, final, employee.EmployeeCod );
+            reporte.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Reportes reporte = new Reportes(5);
+            reporte.ShowDialog();
         }
     }
 }

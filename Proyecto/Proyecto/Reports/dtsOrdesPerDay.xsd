@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtsOrdesPerDay" targetNamespace="http://tempuri.org/dtsOrdesPerDay.xsd" xmlns:mstns="http://tempuri.org/dtsOrdesPerDay.xsd" xmlns="http://tempuri.org/dtsOrdesPerDay.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtsOrdesPerDay" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsOrdesPerDay" msprop:Generator_UserDSName="dtsOrdesPerDay">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OrdesPerDay" msprop:Generator_TableClassName="OrdesPerDayDataTable" msprop:Generator_TableVarName="tableOrdesPerDay" msprop:Generator_TablePropName="OrdesPerDay" msprop:Generator_RowDeletingName="OrdesPerDayRowDeleting" msprop:Generator_RowChangingName="OrdesPerDayRowChanging" msprop:Generator_RowEvHandlerName="OrdesPerDayRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdesPerDayRowDeleted" msprop:Generator_UserTableName="OrdesPerDay" msprop:Generator_RowChangedName="OrdesPerDayRowChanged" msprop:Generator_RowEvArgName="OrdesPerDayRowChangeEvent" msprop:Generator_RowClassName="OrdesPerDayRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_UserColumnName="codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="placa_vehiculo" msprop:Generator_ColumnVarNameInTable="columnplaca_vehiculo" msprop:Generator_ColumnPropNameInRow="placa_vehiculo" msprop:Generator_ColumnPropNameInTable="placa_vehiculoColumn" msprop:Generator_UserColumnName="placa_vehiculo" type="xs:string" minOccurs="0" />
+              <xs:element name="costo" msprop:Generator_ColumnVarNameInTable="columncosto" msprop:Generator_ColumnPropNameInRow="costo" msprop:Generator_ColumnPropNameInTable="costoColumn" msprop:Generator_UserColumnName="costo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

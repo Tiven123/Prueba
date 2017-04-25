@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controller;
 using Model;
+using Proyecto.Logic;
 using Proyecto.View;
 
 
@@ -15,18 +17,18 @@ namespace Proyecto.view
 {
     public partial class Login : Form
     {
-        bool loginOk = false;
+        private LoginOk oLoginOk = new LoginOk();
 
-        public bool LoginOk
+        public LoginOk OLoginOk
         {
             get
             {
-                return loginOk;
+                return oLoginOk;
             }
 
             set
             {
-                loginOk = value;
+                oLoginOk = value;
             }
         }
 
@@ -49,27 +51,24 @@ namespace Proyecto.view
                                 "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (oEmployeeD.isUser(this.textBoxUserName.Text, this.textBoxPassword.Text))
+            else 
             {
-                MessageBox.Show("Bienvenido");
-                this.LoginOk = true;
-                this.Close();
-            }
-            else if (oEmployeeD.Error)
-            {
-                MessageBox.Show("Error insertando los datos: " +
-                    oEmployeeD.ErrorMsg, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Usuario o contraseña incorrectos: " +
-                    oEmployeeD.ErrorMsg, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.textBoxUserName.Text = "";
-                this.textBoxPassword.Text = "";
-            }
-            
+                EmployeeL oEmployeeL = new EmployeeL();
+                oLoginOk = oEmployeeL.isUser1(this.textBoxUserName.Text, this.textBoxPassword.Text);
+                if (oLoginOk.Answer == "Bienvenido")
+                {
+                    MessageBox.Show(oLoginOk.Answer);
+                    this.oLoginOk.Login = true;
+                    //this.oLoginOk.OEmployeeE = this.oEmployeeE;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(oLoginOk.Answer);
+                    this.textBoxUserName.Text = "";
+                    this.textBoxPassword.Text = "";
+                }
+            }           
         }
     }
 }

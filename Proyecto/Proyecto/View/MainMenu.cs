@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 using Model;
-using Proyecto.Controller;
-using Proyecto.Model;
+using Proyecto.Logic;
 using Proyecto.view;
 using Proyecto.View;
 
@@ -18,12 +17,35 @@ namespace Proyecto
 {
     public partial class MainMenu : Form
     {
-        public MainMenu()
+        private EmployeeE oEmployeeE = new EmployeeE();
+        public MainMenu(EmployeeE pEmployeeE)
         {
             InitializeComponent();
+            oEmployeeE = pEmployeeE;
             chargeCombo();
             chargeDataGrid();
             enableAndDisableOptions();
+            userRights();
+        }
+
+        public void userRights()  
+        {
+            if (oEmployeeE.OrderManagerAccess == 'F')
+            {
+                this.tabControlPages.TabPages.Remove(this.tabPage1);
+            }
+            if (oEmployeeE.SystemAccess == 'F')
+            {
+                this.tabControlPages.TabPages.Remove(this.tabPage2);
+            }
+            if (oEmployeeE.Parameters == 'F')
+            {
+                this.tabControlPages.TabPages.Remove(this.tabPage3);
+            }
+            if (oEmployeeE.ManagerMagnamentAccess == 'F')
+            {
+                this.tabControlPages.TabPages.Remove(this.tabPage4);
+            }
         }
 
         public void chargeDataGrid()
@@ -142,7 +164,7 @@ namespace Proyecto
             {
                 this.comboBoxEmployee.Items.Add(oEmployeeE);
             }
-            this.comboBoxEmployee.SelectedIndex = 1;
+            this.comboBoxEmployee.SelectedIndex = 0;
 
 
             this.comboBoxVehicle.Items.Clear();
@@ -152,13 +174,13 @@ namespace Proyecto
             {
                 this.comboBoxVehicle.Items.Add(oVehicleE);
             }
-            this.comboBoxVehicle.SelectedIndex = 1;
+            this.comboBoxVehicle.SelectedIndex = 0;
 
             this.comboBox1.Items.Clear();
             this.comboBox1.Items.Add("En progreso");
             this.comboBox1.Items.Add("Finalizado");
             this.comboBox1.Items.Add("Facturado");
-            this.comboBox1.SelectedIndex = 1;
+            this.comboBox1.SelectedIndex = 0;
         }
         private void buttonNew_Click(object sender, EventArgs e)
         {
@@ -241,36 +263,25 @@ namespace Proyecto
             else
             {
                 int orderNum = int.Parse(this.dataGridViewOrders.CurrentRow.Cells["Consecutive"].Value.ToString());
-                OrderD oOrderD = new OrderD();
-                oOrderD.updatedState("Finalizado", orderNum);
-                if (oOrderD.Error)
-                {
-                    MessageBox.Show("Error insertando datos",
-                                "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Estado modificado exitosamente");
-                    chargeDataGrid();
-                }
+                OrderL oOrderL = new OrderL();
+                string answer = oOrderL.updateOrderState("Finalizado", orderNum);
+                MessageBox.Show (answer);
+                chargeDataGrid();
             }
         }
 
         private void buttonAsk_Click(object sender, EventArgs e)
         {
-            int orderNum = int.Parse(this.dataGridViewOrders.CurrentRow.Cells["Consecutive"].Value.ToString());
-            OrderD oOrderD = new OrderD();
-            oOrderD.updateDate("Facturado", DateTime.Now, orderNum);
-            if (oOrderD.Error)
+            if (this.dataGridViewOrders.CurrentRow.Cells["State"].Value.ToString() == "Facturado")
             {
-                MessageBox.Show("Error insertando los datos: " +
-                        oOrderD.ErrorMsg, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El estado ya está como -Facturado-");
             }
             else
             {
-                MessageBox.Show("Estado modificado exitosamente");
+                int orderNum = int.Parse(this.dataGridViewOrders.CurrentRow.Cells["Consecutive"].Value.ToString());
+                OrderL oOrderL = new OrderL();
+                string answer = oOrderL.updateOrderState("Facturado", orderNum);
+                MessageBox.Show(answer);
                 chargeDataGrid();
             }
         }
@@ -285,20 +296,10 @@ namespace Proyecto
             else
             {
                 int orderNum = int.Parse(this.dataGridViewOrders.CurrentRow.Cells["Consecutive"].Value.ToString());
-                OrderD oOrderD = new OrderD();
-                oOrderD.updatedState("En progreso", orderNum);
-                if (oOrderD.Error)
-                {
-                    MessageBox.Show("Error insertando los datos: " +
-                        oOrderD.ErrorMsg, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);                 
-                }
-                else
-                {
-                    chargeDataGrid();
-                    /*Orders oOrders = new Orders();
-                    oOrders.ShowDialog();*/
-                }
+                OrderL oOrderL = new OrderL();
+                string answer = oOrderL.updateOrderState("En progreso", orderNum);
+                MessageBox.Show(answer);
+                chargeDataGrid();
             }
         }
 
@@ -306,17 +307,11 @@ namespace Proyecto
         {
             if (MessageBox.Show("Esta seguro de eliminar este registro ?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                OrderD oOrderD = new OrderD();
-                int consecutive = int.Parse(this.dataGridViewOrders.CurrentRow.Cells["Consecutive"].Value.ToString());
-                if (oOrderD.deleteOrder(consecutive))
-                {
-                    MessageBox.Show("Orden eliminada exitosamente");
-                    chargeDataGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Error al elimimar orden: " + oOrderD.ErrorMsg);
-                }
+                OrderL oOrderL = new OrderL();
+                int orderNum = int.Parse(this.dataGridViewOrders.CurrentRow.Cells["Consecutive"].Value.ToString());
+                string answer = oOrderL.updateOrderState("En progreso", orderNum);
+                MessageBox.Show(answer);
+                chargeDataGrid();
             }
         }
 

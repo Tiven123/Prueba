@@ -8,10 +8,10 @@ namespace Controller
 {
     public class RepairE
     {
-        int consecutive;
-        string description;
-        int hours;
-        int cost;
+        private int consecutive;
+        private string description;
+        private int hours;
+        private int cost;
 
         public int Consecutive
         {
@@ -80,11 +80,7 @@ namespace Controller
 
         public override string ToString()
         {
-            return base.ToString()+
-                "Codigo: " + this.Consecutive + "\n" +
-                "Descripcion: " + this.Description + "\n" +
-                "Horas Promedio: " + this.Hours + "\n" +
-                "Costo: " + this.Cost;
+            return this.description;
         }
     }
 }

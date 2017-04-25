@@ -8,15 +8,15 @@ namespace Controller
 {
     public class VehicleE
     {
-        string id;
-        int model;
-        string client;
-        int year;
-        string engine;
-        string chassis;
-        string fuel;
-        string type;
-        int capacity;
+        private string id;
+        private int model;
+        private string client;
+        private int year;
+        private string engine;
+        private string chassis;
+        private string fuel;
+        private string type;
+        private int capacity;
 
         public string Id
         {

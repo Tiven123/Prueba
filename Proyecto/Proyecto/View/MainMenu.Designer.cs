@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlPages = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePickerBilling = new System.Windows.Forms.DateTimePicker();
@@ -73,6 +73,7 @@
             this.btnRegisterEmployee = new System.Windows.Forms.Button();
             this.buttonChangePassword = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnModel = new System.Windows.Forms.Button();
             this.btnRepairs = new System.Windows.Forms.Button();
             this.btnReplacement = new System.Windows.Forms.Button();
@@ -80,7 +81,7 @@
             this.btnBrands = new System.Windows.Forms.Button();
             this.btnClientRegister = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.tabControlPages.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
@@ -88,17 +89,17 @@
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControlPages
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(941, 521);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlPages.Controls.Add(this.tabPage2);
+            this.tabControlPages.Controls.Add(this.tabPage3);
+            this.tabControlPages.Controls.Add(this.tabPage1);
+            this.tabControlPages.Controls.Add(this.tabPage4);
+            this.tabControlPages.Location = new System.Drawing.Point(12, 12);
+            this.tabControlPages.Name = "tabControlPages";
+            this.tabControlPages.SelectedIndex = 0;
+            this.tabControlPages.Size = new System.Drawing.Size(941, 521);
+            this.tabControlPages.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -495,9 +496,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(259, 275);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(488, 277);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(150, 23);
+            this.button5.Size = new System.Drawing.Size(449, 149);
             this.button5.TabIndex = 4;
             this.button5.Text = "Salir";
             this.button5.UseVisualStyleBackColor = true;
@@ -505,9 +507,10 @@
             // 
             // btnRegisterPosition
             // 
-            this.btnRegisterPosition.Location = new System.Drawing.Point(259, 219);
+            this.btnRegisterPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterPosition.Location = new System.Drawing.Point(6, 277);
             this.btnRegisterPosition.Name = "btnRegisterPosition";
-            this.btnRegisterPosition.Size = new System.Drawing.Size(150, 23);
+            this.btnRegisterPosition.Size = new System.Drawing.Size(449, 149);
             this.btnRegisterPosition.TabIndex = 2;
             this.btnRegisterPosition.Text = "Registro Puestos";
             this.btnRegisterPosition.UseVisualStyleBackColor = true;
@@ -515,9 +518,10 @@
             // 
             // btnRegisterEmployee
             // 
-            this.btnRegisterEmployee.Location = new System.Drawing.Point(259, 160);
+            this.btnRegisterEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterEmployee.Location = new System.Drawing.Point(488, 75);
             this.btnRegisterEmployee.Name = "btnRegisterEmployee";
-            this.btnRegisterEmployee.Size = new System.Drawing.Size(150, 23);
+            this.btnRegisterEmployee.Size = new System.Drawing.Size(449, 149);
             this.btnRegisterEmployee.TabIndex = 1;
             this.btnRegisterEmployee.Text = "Registro Empleados";
             this.btnRegisterEmployee.UseVisualStyleBackColor = true;
@@ -525,9 +529,10 @@
             // 
             // buttonChangePassword
             // 
-            this.buttonChangePassword.Location = new System.Drawing.Point(259, 100);
+            this.buttonChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChangePassword.Location = new System.Drawing.Point(6, 79);
             this.buttonChangePassword.Name = "buttonChangePassword";
-            this.buttonChangePassword.Size = new System.Drawing.Size(150, 23);
+            this.buttonChangePassword.Size = new System.Drawing.Size(449, 145);
             this.buttonChangePassword.TabIndex = 0;
             this.buttonChangePassword.Text = "Cambio Contraseña";
             this.buttonChangePassword.UseVisualStyleBackColor = true;
@@ -535,6 +540,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.btnModel);
             this.tabPage1.Controls.Add(this.btnRepairs);
             this.tabPage1.Controls.Add(this.btnReplacement);
@@ -548,6 +554,15 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Parámetros";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(262, 375);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Repuestos por Modelo";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnModel
             // 
@@ -624,11 +639,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 542);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlPages);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlPages.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -642,7 +657,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlPages;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage1;
@@ -694,6 +709,7 @@
         private System.Windows.Forms.RadioButton radioButtonBilling;
         private System.Windows.Forms.RadioButton radioButtonExit;
         private System.Windows.Forms.RadioButton radioButtonEntry;
+        private System.Windows.Forms.Button button1;
     }
 }
 

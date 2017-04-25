@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 using Model;
+using Proyecto.Logic;
 
 namespace Proyecto.View
 {
@@ -45,23 +46,15 @@ namespace Proyecto.View
 
             } 
             //this verify if it is user
-            else if (oEmployeeD.isUser(this.textBoxUserName.Text, this.textBoxCurrentPassword.Text))
+            else if (oEmployeeD.isUser2(this.textBoxUserName.Text, this.textBoxCurrentPassword.Text))
             {
                 //this verify if the new password is the same
                 if (this.textBoxNewPassword1.Text == this.textBoxNewPassword2.Text)
                 {
-
-                    oEmployeeD.updateEmployeePassword(this.textBoxUserName.Text, this.textBoxCurrentPassword.Text, this.textBoxNewPassword2.Text);
-                    if (oEmployeeD.Error)
-                    {
-                        MessageBox.Show("Error al ingresar los datos: " + oEmployeeD.ErrorMsg);
-                        cleanAllTextBoxPassword();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Contraseña modificada correctamente");
-                        this.Close();
-                    }
+                    EmployeeL oEmployeeL = new EmployeeL();
+                    string asnwer = oEmployeeL.updateEmployeePassword(this.textBoxUserName.Text, this.textBoxCurrentPassword.Text, this.textBoxNewPassword1.Text);
+                    MessageBox.Show(asnwer);
+                    this.Close();
                 }
                 else
                 {

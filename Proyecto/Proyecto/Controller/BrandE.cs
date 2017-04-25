@@ -8,8 +8,8 @@ namespace Controller
 {
     public class BrandE
     {
-        int code;
-        string description;
+        private int code;
+        private string description;
 
        
 

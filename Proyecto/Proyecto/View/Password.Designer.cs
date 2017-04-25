@@ -44,15 +44,19 @@
             // 
             this.textBoxNewPassword1.Location = new System.Drawing.Point(21, 166);
             this.textBoxNewPassword1.Name = "textBoxNewPassword1";
+            this.textBoxNewPassword1.PasswordChar = '*';
             this.textBoxNewPassword1.Size = new System.Drawing.Size(186, 20);
             this.textBoxNewPassword1.TabIndex = 0;
+            this.textBoxNewPassword1.UseSystemPasswordChar = true;
             // 
             // textBoxNewPassword2
             // 
             this.textBoxNewPassword2.Location = new System.Drawing.Point(18, 230);
             this.textBoxNewPassword2.Name = "textBoxNewPassword2";
+            this.textBoxNewPassword2.PasswordChar = '*';
             this.textBoxNewPassword2.Size = new System.Drawing.Size(186, 20);
             this.textBoxNewPassword2.TabIndex = 1;
+            this.textBoxNewPassword2.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -106,8 +110,10 @@
             // 
             this.textBoxCurrentPassword.Location = new System.Drawing.Point(21, 101);
             this.textBoxCurrentPassword.Name = "textBoxCurrentPassword";
+            this.textBoxCurrentPassword.PasswordChar = '*';
             this.textBoxCurrentPassword.Size = new System.Drawing.Size(186, 20);
             this.textBoxCurrentPassword.TabIndex = 8;
+            this.textBoxCurrentPassword.UseSystemPasswordChar = true;
             // 
             // label4
             // 

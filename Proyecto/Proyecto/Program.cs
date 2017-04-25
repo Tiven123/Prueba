@@ -9,17 +9,15 @@ namespace Proyecto
 {
     static class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
             Login oLogin = new Login();
             oLogin.ShowDialog();
-            if (oLogin.LoginOk)
+            if (oLogin.OLoginOk.Login)
             {
-                MainMenu oMainMenu = new MainMenu();
+                MainMenu oMainMenu = new MainMenu(oLogin.OLoginOk.OEmployeeE);
                 oMainMenu.ShowDialog();
             }
         }

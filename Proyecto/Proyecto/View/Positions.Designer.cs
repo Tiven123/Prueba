@@ -62,7 +62,7 @@
             this.dataGridViewPositions.Size = new System.Drawing.Size(343, 234);
             this.dataGridViewPositions.TabIndex = 0;
             this.dataGridViewPositions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellClick);
-            this.dataGridViewPositions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositions_CellContentClick);
+        
             // 
             // PositionCod
             // 

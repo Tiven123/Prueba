@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Controller;
 using NpgsqlTypes;
-using Model;
+using Proyecto.Logic;
+using Proyecto.view;
 
 namespace Model
 {
@@ -126,7 +127,7 @@ namespace Model
             try
             {
                 string sql = "UPDATE employee SET employeecod = @employeecod, employeeposition = @employeeposition, address = @address, " +
-                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = employeepassword, " +
+                    "housephone = @housephone, celphone = @celphone, employeeuser = @employeeuser, employeepassword = @employeepassword, " +
                     "employee_name = @employee_name, employee_last_name1 = @employee_last_name1, employee_last_name2 = @employee_last_name2, " +
                     "parameters_access = @parameters_access, system_access = @system_access, ordersadmin_access = @ordersadmin_access, " +
                     "management_manager = @management_manager WHERE employeecod = @pemployeecod;";
@@ -217,23 +218,35 @@ namespace Model
             }
         }
 
-        public Boolean isUser(string pUserName, string pPassword)
+        public EmployeeE isUser1(string pUserName, string pPassword)
         {
-            bool vIsUser = false;
             this.errorCleaner();
             Parameters oParameters = new Parameters();
             DataSet dsetEmployees;
+            EmployeeE oEmployeeE = null;
             try
             {
-                string sql = "SELECT employeecod FROM employee where employeeuser = @employeeuser and employeepassword = @employeepassword;";
+                string sql = "SELECT * FROM employee where employeeuser = @employeeuser and employeepassword = @employeepassword;";
                 oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, pUserName);
                 oParameters.addParameter("@employeepassword", NpgsqlDbType.Varchar, pPassword);
                 dsetEmployees = this.connection.executeSQLQuery(sql, "employee", oParameters.getParameter());
 
                 foreach (DataRow tupla in dsetEmployees.Tables[0].Rows)
                 {
-                    EmployeeE oEmployeeE = new EmployeeE(tupla["employeecod"].ToString());
-                    vIsUser = true;
+                    oEmployeeE = new EmployeeE(tupla["employee_name"].ToString(),
+                        tupla["employee_last_name1"].ToString(),
+                        tupla["employee_last_name2"].ToString(),
+                        int.Parse(tupla["housephone"].ToString()),
+                        int.Parse(tupla["celphone"].ToString()),
+                        tupla["address"].ToString(),
+                        int.Parse(tupla["employeecod"].ToString()),
+                        int.Parse(tupla["employeeposition"].ToString()),
+                        tupla["employeeuser"].ToString(),
+                        tupla["employeepassword"].ToString(),
+                        char.Parse(tupla["parameters_access"].ToString()),
+                        char.Parse(tupla["system_access"].ToString()),
+                        char.Parse(tupla["ordersadmin_access"].ToString()),
+                        char.Parse(tupla["management_manager"].ToString()));
                 }
                 if (this.connection.IsError)
                 {
@@ -246,7 +259,54 @@ namespace Model
                 error = true;
                 this.errorMsg = e.Message;
             }
-            return vIsUser;
+            return oEmployeeE;
+        }
+
+        public bool isUser2(string pUserName, string pPassword)
+        {
+            bool answer = false;
+            this.errorCleaner();
+            Parameters oParameters = new Parameters();
+            DataSet dsetEmployees;
+            EmployeeE oEmployeeE = null;
+            try
+            {
+                string sql = "SELECT * FROM employee where employeeuser = @employeeuser and employeepassword = @employeepassword;";
+                oParameters.addParameter("@employeeuser", NpgsqlDbType.Varchar, pUserName);
+                oParameters.addParameter("@employeepassword", NpgsqlDbType.Varchar, pPassword);
+                dsetEmployees = this.connection.executeSQLQuery(sql, "employee", oParameters.getParameter());
+
+                foreach (DataRow tupla in dsetEmployees.Tables[0].Rows)
+                {
+                    oEmployeeE = new EmployeeE(tupla["employee_name"].ToString(),
+                        tupla["employee_last_name1"].ToString(),
+                        tupla["employee_last_name2"].ToString(),
+                        int.Parse(tupla["housephone"].ToString()),
+                        int.Parse(tupla["celphone"].ToString()),
+                        tupla["address"].ToString(),
+                        int.Parse(tupla["employeecod"].ToString()),
+                        int.Parse(tupla["employeeposition"].ToString()),
+                        tupla["employeeuser"].ToString(),
+                        tupla["employeepassword"].ToString(),
+                        char.Parse(tupla["parameters_access"].ToString()),
+                        char.Parse(tupla["system_access"].ToString()),
+                        char.Parse(tupla["ordersadmin_access"].ToString()),
+                        char.Parse(tupla["management_manager"].ToString()));
+                    answer = true;
+                }
+                if (this.connection.IsError)
+                {
+                    error = true;
+                    this.errorMsg = this.connection.descriptionError;
+                    answer = false;
+                }
+            }
+            catch (Exception e)
+            {
+                error = true;
+                this.errorMsg = e.Message;
+            }
+            return answer;
         }
     }
 }

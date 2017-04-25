@@ -41,11 +41,11 @@ namespace Proyecto.View
         private ClientE createClientE()
         {
             ClientE oClientE = new ClientE();
-            //Validate the camps at Client form
+            //Validate the spaces on Client form
             Validate oValidate = new Validate();
             try
             {
-                //verify the camps is not null
+                //verify the spaces are not null
                 if (String.IsNullOrEmpty(txtID.Text) || String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtLastName1.Text) ||
                     String.IsNullOrEmpty(txtLastName2.Text) || String.IsNullOrEmpty(txtOfficePhone.Text) || String.IsNullOrEmpty(txtHuosePhone.Text) ||
                     String.IsNullOrEmpty(txtCelphone.Text) || String.IsNullOrEmpty(txtFax.Text) || String.IsNullOrEmpty(txtAddress.Text))
@@ -55,7 +55,7 @@ namespace Proyecto.View
                 }
                 else
                 {
-                    //get data at form
+                    //get data on form
                     string id = txtID.Text;
                     string name = txtName.Text;
                     string lastName1 = txtLastName1.Text;

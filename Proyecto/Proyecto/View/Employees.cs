@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 using Model;
+using Proyecto.Logic;
 
 namespace Proyecto.View
 {
     public partial class Employees : Form
     {
+        //      EmployeeL oEmployeeL;
         char systemAccess = 'F';
         char parametersAccess = 'F';
         char orderManagerAccess = 'F';
@@ -30,7 +32,7 @@ namespace Proyecto.View
         {
             EmployeeD oEmployeeD = new EmployeeD();
             List<EmployeeE> employees = oEmployeeD.getEmployees();
-            
+
 
             this.dataGridViewEmployees.DataSource = employees;
 
@@ -48,9 +50,13 @@ namespace Proyecto.View
             this.textBoxPassword.Text = "";
             this.textBoxUserName.Text = "";
             this.checkBoxMagnamentManager.Checked = false;
+            this.managerMagnamentAccess = 'F';
             this.checkBoxOrderManager.Checked = false;
+            this.orderManagerAccess = 'F';
             this.checkBoxParameters.Checked = false;
+            this.parametersAccess = 'F';
             this.checkBoxSystemAccess.Checked = false;
+            this.systemAccess = 'F';
             this.comboBoxPosition.SelectedIndex = 0;
         }
 
@@ -59,7 +65,6 @@ namespace Proyecto.View
             this.comboBoxPosition.Items.Clear();
             PositionD oPositionD = new PositionD();
             List<PositionE> positions = oPositionD.getPositions();
-
 
             foreach (PositionE oPositionE in positions)
             {
@@ -71,7 +76,7 @@ namespace Proyecto.View
 
         public void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            Validate oValidate = new Validate();
+            //this is for validating data taken from the form add employee
             if (this.checkBoxMagnamentManager.Checked)
             {
                 this.managerMagnamentAccess = 'T';
@@ -100,70 +105,99 @@ namespace Proyecto.View
                                 "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else 
+            else
             {
-                EmployeeD oEmployeeD = new EmployeeD();
+                //In this part the information validated is sending to Logic to process it.
                 PositionE oPositionE = (PositionE)this.comboBoxPosition.SelectedItem;
-                EmployeeE oEmployeeE = new EmployeeE(this.textBoxName.Text,
-                                                    this.textBoxLastName1.Text,
-                                                    this.textBoxLastName2.Text,
-                                                    int.Parse(this.textBoxHousePhone.Text),
-                                                    int.Parse(this.textBoxCelPhone.Text),
-                                                    this.textBoxAddress.Text,
-                                                    int.Parse(this.textBoxEmployeeCod.Text),
-                                                    oPositionE.PositionCod,
-                                                    this.textBoxUserName.Text, 
-                                                    this.textBoxPassword.Text,
-                                                    parametersAccess,
-                                                    systemAccess,
-                                                    orderManagerAccess,
-                                                    managerMagnamentAccess);
-
-                oEmployeeD.insertEmployee(oEmployeeE);
-                if (oEmployeeD.Error)
+                EmployeeL oEmployeeL = new EmployeeL();
+                string asnwer = oEmployeeL.addEmployee(this.textBoxName.Text,
+                                        this.textBoxLastName1.Text,
+                                        this.textBoxLastName2.Text,
+                                        int.Parse(this.textBoxHousePhone.Text),
+                                        int.Parse(this.textBoxCelPhone.Text),
+                                        this.textBoxAddress.Text,
+                                        int.Parse(this.textBoxEmployeeCod.Text),
+                                        oPositionE.PositionCod,
+                                        this.textBoxUserName.Text,
+                                        this.textBoxPassword.Text,
+                                        parametersAccess,
+                                        systemAccess,
+                                        orderManagerAccess,
+                                        managerMagnamentAccess);
+                if (asnwer == "")
                 {
-                    MessageBox.Show("Error insertando los datos: " +
-                            oEmployeeD.ErrorMsg, "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.chargeDataGrid();
                 }
                 else
                 {
-                    MessageBox.Show("Empleado insertado exitosamente");
-                    chargeDataGrid();
-                    cleanForm();
+                    MessageBox.Show(asnwer);
+                    this.chargeDataGrid();
                 }
             }
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            EmployeeD oEmployeeD = new EmployeeD();
-            int pEmployeeCod = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString());
-            PositionE oPositionE = (PositionE)this.comboBoxPosition.SelectedItem;
-            EmployeeE oEmployeeE = new EmployeeE(this.textBoxName.Text,
-                                                     this.textBoxLastName1.Text,
-                                                     this.textBoxLastName2.Text,
-                                                     int.Parse(this.textBoxHousePhone.Text),
-                                                     int.Parse(this.textBoxCelPhone.Text),
-                                                     this.textBoxAddress.Text,
-                                                     int.Parse(this.textBoxEmployeeCod.Text),
-                                                     oPositionE.PositionCod,
-                                                     this.textBoxUserName.Text,
-                                                     this.textBoxPassword.Text,
-                                                     parametersAccess,
-                                                     systemAccess,
-                                                     orderManagerAccess,
-                                                     managerMagnamentAccess);
-
-            if (oEmployeeD.updateEmployee(oEmployeeE, pEmployeeCod))
+            //this is for validating data taken from the form add employee
+            if (this.checkBoxMagnamentManager.Checked)
             {
-                MessageBox.Show("Empleado modificado correctamente");
-                chargeDataGrid();
-                cleanForm();
+                this.managerMagnamentAccess = 'T';
+            }
+
+            if (this.checkBoxOrderManager.Checked)
+            {
+                orderManagerAccess = 'T';
+            }
+
+            if (this.checkBoxParameters.Checked)
+            {
+                parametersAccess = 'T';
+            }
+
+            if (this.checkBoxSystemAccess.Checked)
+            {
+                systemAccess = 'T';
+            }
+
+            if ((this.textBoxAddress.Text == "") || (this.textBoxCelPhone.Text == "") || (this.textBoxHousePhone.Text == "") ||
+                (this.textBoxLastName1.Text == "") || (this.textBoxLastName2.Text == "") || (this.textBoxName.Text == "") ||
+                (this.textBoxPassword.Text == "") || (this.textBoxUserName.Text == ""))
+            {
+                MessageBox.Show("Debe llenar todos los datos requeridos",
+                                "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Error al modificar empleado: " + oEmployeeD.ErrorMsg);
+                //this is for validating data taken from the form add employee
+                int parameterEmployeeCod = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString());
+                PositionE oPositionE = (PositionE)this.comboBoxPosition.SelectedItem;
+                EmployeeL oEmployeeL = new EmployeeL();
+                string asnwer = oEmployeeL.editEmployee(this.textBoxName.Text,
+                                            this.textBoxLastName1.Text,
+                                            this.textBoxLastName2.Text,
+                                            int.Parse(this.textBoxHousePhone.Text),
+                                            int.Parse(this.textBoxCelPhone.Text),
+                                            this.textBoxAddress.Text,
+                                            int.Parse(this.textBoxEmployeeCod.Text),
+                                            oPositionE.PositionCod,
+                                            this.textBoxUserName.Text,
+                                            this.textBoxPassword.Text,
+                                            parametersAccess,
+                                            systemAccess,
+                                            orderManagerAccess,
+                                            managerMagnamentAccess,
+                                            parameterEmployeeCod);
+                if (asnwer == "")
+                {
+                    this.chargeDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show(asnwer);
+                    cleanForm();
+                    this.chargeDataGrid();
+                }
             }
         }
 
@@ -171,24 +205,24 @@ namespace Proyecto.View
         {
             if (MessageBox.Show("Esta seguro de eliminar este registro ?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                EmployeeD oEmployeeD = new EmployeeD();
-                int id = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString());
-                if (oEmployeeD.deleteEmployee(id))
+                EmployeeL oEmployeeL = new EmployeeL();
+                int id = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoEmpleado"].Value.ToString());             
+                string asnwer = oEmployeeL.deleteEmployee(id);
+                if (asnwer == "")
                 {
-                    MessageBox.Show("Empleado eliminado exitosamente");
-                    chargeDataGrid();
-                    cleanForm();
+                    this.chargeDataGrid();
                 }
                 else
                 {
-                    MessageBox.Show("Error al elimimar empleado: " + oEmployeeD.ErrorMsg);
+                    MessageBox.Show(asnwer);
+                    this.chargeDataGrid();
                 }
-            }         
+            }
         }
 
         private void dataGridViewEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
 
         }
 
@@ -220,8 +254,8 @@ namespace Proyecto.View
             {
                 this.checkBoxMagnamentManager.Checked = true;
             }
-   
-            this.comboBoxPosition.SelectedIndex = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoPosicion"].Value.ToString()) - 1; 
+
+            this.comboBoxPosition.SelectedIndex = int.Parse(this.dataGridViewEmployees.CurrentRow.Cells["codigoPosicion"].Value.ToString()) - 1;
         }
 
         private void buttonClean_Click(object sender, EventArgs e)

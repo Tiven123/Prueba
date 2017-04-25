@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +48,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Mono.Security">
       <HintPath>..\..\..\..\Descargas\appPolizaSeguros(1)\appPolizaSegurosStevenOrtiz\appPolizaSeguros\bin\Debug\Mono.Security.dll</HintPath>
     </Reference>
@@ -41,6 +61,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,8 +82,20 @@
     <Compile Include="Controller\PersonE.cs" />
     <Compile Include="Controller\PositionE.cs" />
     <Compile Include="Controller\RepairE.cs" />
+    <Compile Include="Controller\RepairPerOrderE.cs" />
     <Compile Include="Controller\ReplacementE.cs" />
+    <Compile Include="Controller\ReplacementOrderE.cs" />
     <Compile Include="Controller\VehicleE.cs" />
+    <Compile Include="Logic\BrandL.cs" />
+    <Compile Include="Logic\ClientL.cs" />
+    <Compile Include="Logic\EmployeeL.cs" />
+    <Compile Include="Logic\LoginOk.cs" />
+    <Compile Include="Logic\ModelL.cs" />
+    <Compile Include="Logic\OrderL.cs" />
+    <Compile Include="Logic\PositionL.cs" />
+    <Compile Include="Logic\ReparationL.cs" />
+    <Compile Include="Logic\ReplacementL.cs" />
+    <Compile Include="Logic\VehicleL.cs" />
     <Compile Include="Model\ClientD.cs" />
     <Compile Include="Model\EmployeeD.cs" />
     <Compile Include="Model\BrandD.cs" />
@@ -71,7 +105,9 @@
     <Compile Include="Model\PositionD.cs" />
     <Compile Include="Model\PostgressDataAccess.cs" />
     <Compile Include="Model\RepairD.cs" />
+    <Compile Include="Model\RepairOrderD.cs" />
     <Compile Include="Model\ReplacementD.cs" />
+    <Compile Include="Model\ReplacementOrderD.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Model\VehicleD.cs" />
     <Compile Include="View\Brands.cs">
@@ -208,6 +244,24 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

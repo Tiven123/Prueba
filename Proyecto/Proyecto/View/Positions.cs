@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Controller;
 using Model;
+using Proyecto.Logic;
 
 namespace Proyecto.View
 {
@@ -40,21 +41,17 @@ namespace Proyecto.View
             }
             else
             {
-                PositionD oPositionD = new PositionD();
-                PositionE oPositionE = new PositionE(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text);
-                oPositionD.insertPositions(oPositionE);
-                if (oPositionD.Error)
+                PositionL oPositionL = new PositionL();
+                string asnwer = oPositionL.addPosition(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text);
+                if (asnwer == "")
                 {
-                    MessageBox.Show("Error insertando los datos: " +
-                            oPositionD.ErrorMsg, "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.chargeDataGrid();
                 }
                 else
                 {
-                    MessageBox.Show("Posición insertada exitosamente");
-                    chargeDataGrid();
-                    cleanForm();
-                }
+                    MessageBox.Show(asnwer);
+                    this.chargeDataGrid();
+                }                          
             }
         }
 
@@ -62,41 +59,35 @@ namespace Proyecto.View
         {
             if (MessageBox.Show("Esta seguro de eliminar este registro ?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                PositionD oPositionD = new PositionD();
                 int id = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
-                if (oPositionD.deletePosition(id))
+                PositionL oPositionL = new PositionL();
+                string asnwer = oPositionL.deletePosition(id);
+                if (asnwer == "")
                 {
-                    MessageBox.Show("Posicion eliminada exitosamente");
-                    chargeDataGrid();
-                    cleanForm();
+                    this.chargeDataGrid();
                 }
                 else
                 {
-                    MessageBox.Show("Error al elimimar posición: " + oPositionD.ErrorMsg);
+                    MessageBox.Show(asnwer);
+                    this.chargeDataGrid();
                 }
             }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            PositionD oPositionD = new PositionD();
             int pPositionCod = int.Parse(this.dataGridViewPositions.CurrentRow.Cells["PositionCod"].Value.ToString());
-            PositionE oPositionE = new PositionE(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text);
-            if (oPositionD.updatePosition(oPositionE, pPositionCod))
+            PositionL oPositionL = new PositionL();
+            string asnwer = oPositionL.editPosition(int.Parse(this.textBoxPositionCod.Text), this.textBoxDescription.Text, this.textBoxPositionType.Text, pPositionCod);
+            if (asnwer == "")
             {
-                MessageBox.Show("Posición modificada correctamente");
-                chargeDataGrid();
-                cleanForm();
-
+                this.chargeDataGrid();
             }
             else
             {
-                MessageBox.Show("Error al modificar posicion: " + oPositionD.ErrorMsg);
+                MessageBox.Show(asnwer);
+                this.chargeDataGrid();
             }
-        }
-
-        private void dataGridViewPositions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
 
         private void dataGridViewPositions_CellClick(object sender, DataGridViewCellEventArgs e)

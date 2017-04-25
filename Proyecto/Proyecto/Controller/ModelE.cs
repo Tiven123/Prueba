@@ -8,9 +8,9 @@ namespace Controller
 {
     public class ModelE
     {
-        int code;
-        int brand;
-        string description;
+        private int code;
+        private int brand;
+        private string description;
 
         public int Code
         {

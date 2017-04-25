@@ -135,6 +135,10 @@ namespace Controller
             }
         }
 
+        public EmployeeE()
+        {          
+        }
+
         public EmployeeE(string pName,
                         string pLastName1,
                         string pLastName2,
